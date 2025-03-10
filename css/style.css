@@ -1,0 +1,11 @@
+@import url("/css/main_body_left.css");
+@import url("/css/reset.css");
+:root{
+    --primary-color:rgb(0, 245, 12);
+    --second-color:rgb(214, 202, 202);
+    --primary-background-color: #333;
+}
+.div-main-body{
+    display: flex;
+    height: 300px;
+}
