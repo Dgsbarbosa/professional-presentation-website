@@ -7,6 +7,7 @@
     justify-content: space-around;
     border-radius: 8px 0 0 8px;
     height: 100%;
+    z-index: 10;
 
 }
 
@@ -33,7 +34,7 @@
 /* border: 1px solid rgb(255, 255, 255); */
 
     width: 100%;
-    font-size: 0.7em;
+    font-size: 1em;
 
 
 }
@@ -72,13 +73,16 @@
     background: var(--primary-background-color);
     border-radius: 0 0 0 8px;
     padding-left: 20px;
-    width: 200px;   
+    width: max-content;   
 
 }
 .main-left-options:hover .main-list a{
+    background: var(--primary-background-color);
+    
     width: max-content;  
 }
 .main-left-options:hover  .main-list-option-text{
+
     display: block;
     padding: 0px 10px;
     opacity: 1;
@@ -94,6 +98,7 @@
 }
 
 
-.main-left-down{
+.main-left-down a{
     color: var(--primary-color);
+    font-size: 1.7rem;
 }

@@ -1,5 +1,7 @@
 @import url("/css/main_body_left.css");
 @import url("/css/reset.css");
+@import url("/css/main_body_rigth.css");
+@import url("/css/resume.css");
 :root{
     --primary-color:rgb(0, 245, 12);
     --second-color:rgb(214, 202, 202);
@@ -7,5 +9,7 @@
 }
 .div-main-body{
     display: flex;
-    height: 300px;
+    height: 80vh;
+       
+   
 }
