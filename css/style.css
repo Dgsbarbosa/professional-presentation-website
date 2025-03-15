@@ -3,7 +3,8 @@
 @import url("/css/main_body_rigth.css");
 @import url("/css/resume.css");
 @import url("/css/basic_data.css");
-
+@import url("/css/social_medias.css");
+@import url("/css/professional.css");
 :root {
     /* text color */
     --primary-text-color: #3ab4dd;
@@ -26,4 +27,16 @@
     height: 80vh;
 
 
+}
+
+
+/* Ocultar */
+.resume {
+    display: none;
+}
+.basic-data{
+     display: none;
+}
+.professional{
+    /* display: none; */
 }

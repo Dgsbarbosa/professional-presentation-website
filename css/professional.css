@@ -1,0 +1,14 @@
+.professional{
+    color: var(--second-text-color);
+    padding: 30px;
+    width: 100%;
+    
+
+}
+
+.timeline{
+    padding: 50px;
+    background-color: var();
+    box-shadow: 0px 0px 10px black;
+    border-radius: 8px;
+}
