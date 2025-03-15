@@ -2,14 +2,28 @@
 @import url("/css/reset.css");
 @import url("/css/main_body_rigth.css");
 @import url("/css/resume.css");
-:root{
-    --primary-color:rgb(0, 245, 12);
-    --second-color:rgb(214, 202, 202);
-    --primary-background-color: #333;
+@import url("/css/basic_data.css");
+
+:root {
+    /* text color */
+    --primary-text-color: #3ab4dd;
+    --second-text-color: rgb(214, 202, 202);
+    /* --third-text-color: #006400; */
+
+    /* icons color*/
+    --primary-icon-color: #CCCCCC;
+
+    /*background color  */
+    --primary-background-color: #000000;
+    --second-background-color: #1b1919;
+
+    /* fonts */
+    
 }
-.div-main-body{
+
+.div-main-body {
     display: flex;
     height: 80vh;
-       
-   
+
+
 }

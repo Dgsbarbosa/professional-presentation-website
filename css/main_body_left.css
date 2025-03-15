@@ -5,9 +5,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    border-radius: 8px 0 0 8px;
     height: 100%;
     z-index: 10;
+    background: var(--second-background-color);
+    text-shadow: 2px 2px 2px black;
+    padding-left: 10px;
+    /* padding-right: 10px;background-color: lightblue; */
+    box-shadow: 10px 0px 15px rgba(0, 0, 0, 0.3);
+
 
 }
 
@@ -15,28 +20,23 @@
 .main-left-top {
     padding-top: 10px;
     height: 5%;
-    color: var(--primary-color) ;
- 
+    color: var(--primary-text-color) ; 
+    text-shadow: 2px 2px 2px black;
+
 
 }
-
-
 .main-left-options {    
 
     display: flex;
     width: 50px ;
-    height: 60%;
-  
+    height: 60%;  
    
 }
 
 .main-left-options nav{
 /* border: 1px solid rgb(255, 255, 255); */
-
     width: 100%;
-    font-size: 1em;
-
-
+    font-size: 1.2em;
 }
 
 .main-left-options nav ul{     
@@ -51,10 +51,8 @@
 }
 
 .main-list a{
-    color: var(--second-color);
+    color: var(--second-text-color);
     text-decoration: none;
-    
- 
 }
 .main-list-option-text {
     display: none;
@@ -63,23 +61,28 @@
 
 .main-left-options:hover {
     cursor: pointer;  
+    
 }
 
 .main-left-options:hover .main-list-option{
     display: flex;
     align-items: center;
+    
+}
+.main-left-options:hover  .main-list{
+    box-shadow: 1px 1px 10px black;
+
 }
 .main-left-options:hover  .main-list, .main-left-options:hover .main-list a{
-    background: var(--primary-background-color);
-    border-radius: 0 0 0 8px;
+    background: var(--second-background-color);
     padding-left: 20px;
     width: max-content;   
 
 }
 .main-left-options:hover .main-list a{
-    background: var(--primary-background-color);
-    
+    /* background: var(--second-background-color);     */
     width: max-content;  
+    
 }
 .main-left-options:hover  .main-list-option-text{
 
@@ -94,11 +97,14 @@
     
 }
 .main-list a:hover{
-    color: var(--primary-color);
+    color: var(--primary-text-color);
+    text-shadow: 2px 2px 2px black;
+    
 }
 
 
 .main-left-down a{
-    color: var(--primary-color);
+    color: var(--primary-text-color);
     font-size: 1.7rem;
+    text-shadow: 2px 2px 2px black;
 }
