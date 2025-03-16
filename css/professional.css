@@ -1,14 +1,100 @@
 .professional{
     color: var(--second-text-color);
     padding: 30px;
-    width: 100%;
-    
+    width: 100%; 
+}
+
+.professional h2{
+    color: var(--primary-text-color);
+    margin-top: 30px;
 
 }
 
 .timeline{
-    padding: 50px;
+    /* padding: 50px; */
     background-color: var();
     box-shadow: 0px 0px 10px black;
     border-radius: 8px;
+    padding-bottom: 30px;
+}
+
+.timeline-steps {
+    /* border: 2px solid black; */
+    display: flex;    
+    justify-content: center;
+    flex-wrap: wrap
+
+}
+
+.timeline-steps .timeline-step {
+    /* border: 2px solid black; */
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* margin: 1rem */
+}
+
+.timeline-steps .timeline-content {
+    width: 11rem;
+    text-align: center
+}
+
+.timeline-steps .timeline-content .inner-circle {
+    border-radius: 1.5rem;
+    height: 0.5rem;
+    width: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-text-color)
+}
+
+.timeline-steps .timeline-content .inner-circle:before {
+    content: "";
+    background-color: var(--second-text-color);
+    display: inline-block;
+    height: 1rem;
+    width: 1rem;
+    min-width: 1rem;
+    border-radius: 6.25rem;
+    opacity: .5
+}
+
+.timeline-step p{
+    color: var(--second-text-color);
+}
+.timeline-step p:first-of-type {
+    font-weight: bold;
+    color: var(--primary-text-color);
+}
+
+.timeline-step p:nth-of-type(2){
+font-size: 12px;
+font-weight: normal;
+}
+.destak{
+    color: var(--primary-text-color);
+}
+
+@media (min-width:768px) {
+    .timeline-steps .timeline-step:not(:last-child):after {
+        content: "";
+        display: block;
+        border-top: .25rem dotted var(--primary-text-color);
+        width: 3.46rem;
+        position: absolute;
+        left: 7.5rem;
+        top: .3125rem
+    }
+    .timeline-steps .timeline-step:not(:first-child):before {
+        content: "";
+        display: block;
+        border-top: .25rem dotted var(--primary-text-color);
+        width: 3.8125rem;
+        position: absolute;
+        right: 7.5rem;
+        top: .3125rem
+    }
 }
