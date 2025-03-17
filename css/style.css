@@ -5,6 +5,8 @@
 @import url("/css/basic_data.css");
 @import url("/css/social_medias.css");
 @import url("/css/professional.css");
+@import url("/css/timeline.css");
+@import url("/css/courses.css");
 :root {
     /* text color */
     --primary-text-color: #3ab4dd;
@@ -19,24 +21,30 @@
     --second-background-color: #1b1919;
 
     /* fonts */
+
+    --text-font:"Poppins";
+    --title-font:"Montserrat";
     
 }
 
 .div-main-body {
     display: flex;
     height: 80vh;
-
-
 }
-
 
 /* Ocultar */
-.resume {
-    display: none;
-}
-.basic-data{
-     display: none;
-}
-.professional{
-    /* display: none; */
-}
+.hidden {
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    pointer-events: none; 
+    transition: opacity 0.3s ease;
+  }
+  
+  .visible {
+    opacity: 1;
+    position: static; 
+    visibility: visible;
+    pointer-events: auto; 
+    transition: opacity 0.3s ease;
+  }

@@ -28,7 +28,7 @@
 
           <ul class="main-list">
 
-            <a href="">
+            <a href="" data-target="resume">
 
               <li class="main-list-option">
                 <i class="fa-solid fa-file"></i>
@@ -37,7 +37,7 @@
 
             </a>
 
-            <a href="">
+            <a href="" data-target="basic-data">
 
               <li class="main-list-option">
                 <i class="fa-solid fa-address-card"></i>
@@ -46,7 +46,7 @@
 
             </a>
 
-            <a href="">
+            <a href="" data-target="professional">
 
               <li class="main-list-option">
                 <i class="fa-solid fa-road"></i>
@@ -56,7 +56,7 @@
 
             </a>
 
-            <a href="">
+            <a href="" data-target="courses">
 
               <li class="main-list-option">
                 <i class="fa-solid fa-award"></i>
@@ -66,7 +66,7 @@
 
             </a>
 
-            <a href="">
+            <a href="" data-target="softwares">
 
               <li class="main-list-option">
                 <i class="fa-solid fa-graduation-cap"></i>
@@ -75,7 +75,7 @@
 
             </a>
 
-            <a href="">
+            <a href="" data-target="projects">
 
               <li class="main-list-option">
                 <i class="fa-solid fa-diagram-project"></i>
@@ -84,7 +84,7 @@
 
             </a>
 
-            <a href="">
+            <a href="" data-target="skills">
 
               <li class="main-list-option">
                 <i class="fa-solid fa-house-laptop"></i>
@@ -94,7 +94,7 @@
 
             </a>
 
-            <a href="">
+            <a href="" data-target="social-media">
 
               <li class="main-list-option">
                 <i class="fa-solid fa-house-laptop"></i>
@@ -121,7 +121,7 @@
 
     <section class="body-right ">
 
-      <div class="resume">
+      <div class="resume hidden" id="resume" data-visibility="deactive">
 
         <div class="photo ">
           <div class="name-resume">
@@ -210,7 +210,7 @@
 
       </div>
 
-      <div class="basic-data ">
+      <div class="basic-data hidden" id="basic-data" data-visibility="deactive">
 
         <div class="datas container">
 
@@ -316,73 +316,256 @@
 
       </div>
 
-      <div class="professional">
-        <div class="timeline container">
-          
-          
-          
-          <div class="container">                      
-            <div class="row text-center justify-content-center mb-5">
-                <div class="col-xl-6 col-lg-8">
-                    <h2 class="font-weight-bold">Trajetória Profissional</h2>
-                   
-                </div>
-            </div>
-        
-            <div class="row">
-                <div class="col">
-                    <div class="timeline-steps aos-init aos-animate" data-aos="fade-up">
-                        <div class="timeline-step">
-                            <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2003">
-                                <div class="inner-circle"></div>
-                                <p class="h6 mt-3 mb-1">2003-2007</p>
-                                <hr>
-                                <p class="h6  mb-0 mb-lg-0">
-                                  Aos <span class="destak">14 anos </span>iniciei minha trajetória profissional como <span class="destak">empacotador</span>, no  Mercosuper Supermercado  na cidade de Bauru/SP atuando por um ano e meio.
-                                  
-                                  Em <span class="destak">2004</span> atuei como <span class="destak">Office-boy</span> em uma empresa de produtos hospitalares, realizando serviços bancários, controle de estoque e emissão de boletos. 
-                                </p>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-step">
-                         
+      <div class="professional hidden" id="professional" data-visibility="deactive">
 
-                            <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2004">
-                                <div class="inner-circle"></div>
-                                <p class="h6 mt-3 mb-1">2007-2010</p>
-                                
-                                <p class="h6  mb-0 mb-lg-0">Launched Trello</p>
-                            </div>
-                        </div>
-                        <div class="timeline-step">
-                            <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2005">
-                                <div class="inner-circle"></div>
-                                <p class="h6 mt-3 mb-1">2010-2013</p>
-                                <p class="h6  mb-0 mb-lg-0">Launched Messanger</p>
-                            </div>
-                        </div>
-                        <div class="timeline-step">
-                            <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2010">
-                                <div class="inner-circle"></div>
-                                <p class="h6 mt-3 mb-1">2013-2024</p>
-                                <p class="h6  mb-0 mb-lg-0">Open New Branch</p>
-                            </div>
-                        </div>
-                        <div class="timeline-step mb-0">
-                            <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2020">
-                                <div class="inner-circle"></div>
-                                <p class="h6 mt-3 mb-1">2024-Atual</p>
-                                <p class="h6  mb-0 mb-lg-0">In Fortune 500</p>
-                            </div>
-                        </div>
+        <div class="div-timeline container">
+
+          <h2>Trajetória Profissional</h2>
+          <hr>
+
+          <div class="timelines container">
+            <div class=" row">
+
+              <div class=" col-md-12">
+
+                <div class="Yearly-timeline">
+
+                  <!-- Atual-->
+                  <div class="timeline">
+                    <div class="timeline-content">
+                      <div class="timeline-icon">
+                        <i class="fa-solid fa-business-time"></i>
+                      </div>
+                      <h3 class="title-timeline">Atualmente</h3>
+                      <p class="description">
+                        Atualmente, ocupo o cargo de <span class="destak">Supervisor Operacional</span> na <span
+                          class="destak">EQS
+                          Engenharia</span>, onde lidero equipes multidisciplinares
+                        em contratos de <span class="destak">manutenção predial</span>. Com ampla experiência na
+                        coordenação de operações e
+                        processos, minha principal responsabilidade é garantir a <span class="destak">
+                          eficiência</span> e a qualidade dos serviços
+                        prestados
+                        , assegurando o perfeito funcionamento da <span class="destak">
+                          infraestrutura edifícios
+                          públicos</span>.
+
+                        Minha atuação exige habilidades de gestão, resolução de problemas e comunicação eficaz entre
+                        diferentes áreas técnicas, sempre com <span class="destak">foco em resultados</span>, <span
+                          class="destak">segurança</span> e <span class="destak">excelência operacional</span>.
+                      </p>
                     </div>
+                  </div>
+
+                  <!-- Novo Padrão -->
+                  <div class="timeline">
+
+                    <div class="timeline-content">
+
+                      <div class="timeline-icon">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                      </div>
+
+                      <h3 class="title-timeline">2013-2024</h3>
+
+                      <p class="description">
+                        Em <span class="destak">2013</span>, inicio minha empresa
+                        <span class="destak">Novo Padrão Reforma e Manutenção Predial</span>, na cidade de Bauru/SP,
+                        atuando na prestação de serviços para empresas na área de
+                        <span class="destak">manutenção predial</span>.
+                        Dentre os serviços oferecidos, destaco:
+                        <span class="destak">elétrica</span>,
+                        <span class="destak">hidráulica</span>,
+                        <span class="destak">alvenaria</span>,
+                        <span class="destak">pintura</span>,
+                        <span class="destak">revestimentos</span> e
+                        <span class="destak">calhas e telhados</span>.
+                        Executando desde pequenos reparos até grandes projetos.
+
+
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                  <!-- Construção -->
+                  <div class="timeline">
+
+                    <div class="timeline-content">
+
+                      <div class="timeline-icon">
+                        <i class="fa-solid fa-trowel-bricks"></i>
+                      </div>
+
+                      <h3 class="title-timeline">2010-2013</h3>
+
+                      <p class="description">
+                        Em <span class="destak">2010</span>
+                        inicio minha trajetória na empresa
+                        <span class="destak">Casa Alta Construções</span>, na cidade de Bauru/SP, exercendo o cargo de
+                        servente. Durante esse período, atuei em diversas funções, incluindo
+                        <span class="destak">auxiliar de topografia</span>,
+                        <span class="destak">auxiliar de elétrica</span> e
+                        <span class="destak">auxiliar de almoxarifado</span>, adquirindo experiência em todas as etapas
+                        da construção civil.
+                        <br>
+                        No meio de <span class="destak">2011</span>, inicio como pintor autônomo, prestando serviços de
+                        pintura em apartamentos em construção.
+                        Em <span class="destak">2012</span>, amplio minha atuação para serviços de reparos e reformas
+                        residenciais.
+
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                  <!-- Food -->
+                  <div class="timeline">
+                    <div class="timeline-content">
+                      <div class="timeline-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                      </div>
+                      <h3 class="title">2007-2010</h3>
+                      <p class="description">
+                        Aos <span class="destak">18 anos</span>, iniciei na área de
+                        <span class="destak">serviços alimentícios</span>, prestando serviços como
+                        <span class="destak">freelancer</span> e atuando em grandes empresas de
+                        <span class="destak">Bauru/SP</span>, como:
+                        <span class="destak">Habib's</span>
+                        <span class="destak">Casarão da Picanha</span>,
+                        <span class="destak">Cantina Fratello</span>
+
+                        <span class="destak">Servus Cervejaria</span>
+
+                        Nessas empresas, exerci funções de
+                        <span class="destak">copeiro</span>,
+                        <span class="destak">garçom</span> e
+                        <span class="destak">auxiliar de cozinha</span>, além de prestar serviços de buffet na cidade de
+                        <span class="destak">São Paulo</span>.
+
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Office -->
+                  <div class="timeline">
+                    <div class="timeline-content">
+                      <div class="timeline-icon">
+                        <i class="fa-solid fa-stapler"></i>
+                      </div>
+                      <h3 class="title">2003-2007</h3>
+                      <p class="description">
+                        Aos <span class="destak">14 anos</span>, iniciei minha jornada no mercado de trabalho como
+                        <span class="destak">empacotador</span> no
+                        <span class="destak">Mercosuper Supermercado</span>, em
+                        <span class="destak">Bauru/SP</span>, onde atuei por
+                        <span class="destak">um ano e meio</span>, desenvolvendo habilidades de
+                        <span class="destak">atendimento ao cliente</span> e
+                        <span class="destak">trabalho em equipe</span>.
+
+                        Em <span class="destak">2004</span>, ingressei como
+                        <span class="destak">office-boy</span> em uma empresa de
+                        <span class="destak">produtos hospitalares</span>, desempenhando funções como
+                        <span class="destak">serviços bancários</span>,
+                        <span class="destak">controle de estoque</span> e
+                        <span class="destak">emissão de boletos</span>, adquirindo experiência
+                        <span class="destak">administrativa</span> e
+                        <span class="destak">organizacional</span> ao longo de
+                        <span class="destak">dois anos</span>.
+
+                        Em <span class="destak">2006</span>, assumi a função de
+                        <span class="destak">entregador</span> em uma empresa de
+                        <span class="destak">embalagens descartáveis</span>, aprimorando minha capacidade de
+                        <span class="destak">logística</span> e
+                        <span class="destak">gestão de tempo</span>.
+
+
+                      </p>
+                    </div>
+                  </div>
                 </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <div class="courses visible" id="courses" data-visibility="active">
+        <h2>Cursos e Qualificações </h2>
+        <div class="areas-main container">
+
+          <div class="areas-list row col-sm-4">
+
+            <ul>
+              <li>Administração</li>
+              <li>Atendimento e Relacionamento</li>
+              <li>Design</li>
+              <li>Idiomas</li>
+              <li>Predial</li>
+              <li>Programação</li>
+              <li>Segurança</li>
+              <li>Telecomunicação</li>
+            </ul>
+
+          </div>
+
+          <div class="areas-selected row col-sm-8" id="selected-area">
+
+            <div class="area-selected container">
+              <h6 class="area-selected-title">Adm</h6>
+
+              <div class="area-selected-list row">
+
+                <div class=" col-md-4 ">
+
+                </div>
+
+                <div class="col-md-3">
+                  teste
+                </div>
+                <div class="col-md-3">
+                  teste
+                </div>
+                <div class="col-md-3">
+                  teste
+                </div>
+                <div class="col-md-3">
+                  teste
+                </div>
+                <div class="col-md-3">
+                  teste
+                </div>
+                <div class="col-md-3">
+                  teste
+                </div>
+                <div class="col-md-3">
+                  teste
+                </div>
+                <div class="col-md-3">
+                  teste
+                </div>
+                <div class="col-md-3">
+                  teste
+                </div>
+                <div class="col-md-3">
+                  teste
+                </div>
+
+
+
+              </div>
             </div>
 
-        </div>
+          </div>
 
         </div>
+
       </div>
 
 
