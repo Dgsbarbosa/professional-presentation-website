@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     menuButtons();
+    setupImageModal();
 });
 
 function menuButtons() {
@@ -8,7 +9,6 @@ function menuButtons() {
         button.addEventListener("click", showSection)
     })
 }
-
 
 // Manipulação do menu
 function showSection(event) {
@@ -34,4 +34,47 @@ function showSection(event) {
 
 
 
+}
+
+function setupImageModal() {
+    const thumbnails = document.querySelectorAll(".certificate-thumbnail");
+    const modal = document.getElementById("certificateModal");
+    const modalImg = document.getElementById("fullImage");
+    const closeModal = document.querySelector(".close");
+
+    let scale = 1;
+    const minScale = 1;
+    const maxScale = 3;
+
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener("click",function () { 
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                scale = 1;
+                modalImg.style.transform = `scale(${scale}) `;
+             });
+        });
+
+        closeModal.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        modal.addEventListener("click",function(e){
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        modal.addEventListener("wheel", function (e) { 
+            e.preventDefault();
+
+            if (e.deltaY < 0 ) {
+                scale = Math.min(scale + 0.1, maxScale)
+            }else{
+                scale =  Math.max(scale - 0.1, minScale);
+            }
+            modalImg.style.transform = `scale(${scale})`;
+            modalImg.style.transition = "transform 0.2s ease";
+         });
+    
 }
