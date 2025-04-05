@@ -1,62 +1,54 @@
 {
-  "Administração": [
-    "certificados/Administração/Auxiliar Administrativo-1.png",
-    "certificados/Administração/desktop.ini",
-    "certificados/Administração/Excel Intermediário-1.png",
-    "certificados/Administração/Excel Intermediário-2.png"
+  "administracao": [
+    "certificados/administracao/auxiliar-administrativo-1.png",
+    "certificados/administracao/excel-intermediario-1.png",
+    "certificados/administracao/excel-intermediario-2.png"
   ],
-  "Atendimento e Relacionamento": [
-    "certificados/Atendimento e Relacionamento/Atendimento Encantador-1.png",
-    "certificados/Atendimento e Relacionamento/Atendimento Encantador-2.png",
-    "certificados/Atendimento e Relacionamento/desktop.ini"
+  "atendimento-e-relacionamento": [
+    "certificados/atendimento-e-relacionamento/atendimento-encantador-1.png",
+    "certificados/atendimento-e-relacionamento/atendimento-encantador-2.png"
   ],
-  "Construção e Manutenção": [
-    "certificados/Construção e Manutenção/Básicos Prediais-1.png",
-    "certificados/Construção e Manutenção/desktop.ini",
-    "certificados/Construção e Manutenção/Eletricista Instalador Residencial -1.png",
-    "certificados/Construção e Manutenção/Eletricista Instalador Residencial -2.png",
-    "certificados/Construção e Manutenção/Energia Solar Fotovoltaica-1.png",
-    "certificados/Construção e Manutenção/Hidráulica Básica-1.png",
-    "certificados/Construção e Manutenção/Iluminação de Emergência-1.png",
-    "certificados/Construção e Manutenção/Instalação de Circuitos Fechados de TV - CFTV - Nível 1-1.png"
+  "construcao-e-manutencao": [
+    "certificados/construcao-e-manutencao/basicos-prediais-1.png",
+    "certificados/construcao-e-manutencao/eletricista-instalador-residencial--1.png",
+    "certificados/construcao-e-manutencao/eletricista-instalador-residencial--2.png",
+    "certificados/construcao-e-manutencao/energia-solar-fotovoltaica-1.png",
+    "certificados/construcao-e-manutencao/hidraulica-basica-1.png",
+    "certificados/construcao-e-manutencao/iluminacao-de-emergencia-1.png",
+    "certificados/construcao-e-manutencao/instalacao-de-circuitos-fechados-de-tv---cftv---nivel-1-1.png"
   ],
-  "Desenvolvimento e Programação": [
-    "certificados/Desenvolvimento e Programação/Arquitetura de Software Transicao do Desenvolvimento para a Arquitetura-1.png",
-    "certificados/Desenvolvimento e Programação/CS50s Introduction to Computer Science-1.png",
-    "certificados/Desenvolvimento e Programação/CS50s Introduction to Programming with python-1.png",
-    "certificados/Desenvolvimento e Programação/CS50s Web Programming with Python-1.png",
-    "certificados/Desenvolvimento e Programação/CSharp Formacao Basica-1.png",
-    "certificados/Desenvolvimento e Programação/desktop.ini",
-    "certificados/Desenvolvimento e Programação/Fullstack Geração Tech Unimed-BH.jpg",
-    "certificados/Desenvolvimento e Programação/Fundamentos da Programacao-1.png",
-    "certificados/Desenvolvimento e Programação/Fundamentos de Programacao Algoritmos-1.png",
-    "certificados/Desenvolvimento e Programação/Ifood - Java Beginners.png",
-    "certificados/Desenvolvimento e Programação/Imersão AWS-1.png",
-    "certificados/Desenvolvimento e Programação/Inteligência Artificial Aplicada a Dados.png",
-    "certificados/Desenvolvimento e Programação/Linux Experience.png",
-    "certificados/Desenvolvimento e Programação/Pottencial .NET Developer.jpg",
-    "certificados/Desenvolvimento e Programação/Santander Fullstack Developer.jpg",
-    "certificados/Desenvolvimento e Programação/Órbi Web Games Developer.jpg"
+  "desenvolvimento-e-programacao": [
+    "certificados/desenvolvimento-e-programacao/arquitetura-de-software-transicao-do-desenvolvimento-para-a-arquitetura-1.png",
+    "certificados/desenvolvimento-e-programacao/cs50s-introduction-to-computer-science-1.png",
+    "certificados/desenvolvimento-e-programacao/cs50s-introduction-to-programming-with-python-1.png",
+    "certificados/desenvolvimento-e-programacao/cs50s-web-programming-with-python-1.png",
+    "certificados/desenvolvimento-e-programacao/csharp-formacao-basica-1.png",
+    "certificados/desenvolvimento-e-programacao/fullstack-geracao-tech-unimed-bh.jpg",
+    "certificados/desenvolvimento-e-programacao/fundamentos-da-programacao-1.png",
+    "certificados/desenvolvimento-e-programacao/fundamentos-de-programacao-algoritmos-1.png",
+    "certificados/desenvolvimento-e-programacao/ifood---java-beginners.png",
+    "certificados/desenvolvimento-e-programacao/imersao-aws-1.png",
+    "certificados/desenvolvimento-e-programacao/inteligencia-artificial-aplicada-a-dados.png",
+    "certificados/desenvolvimento-e-programacao/linux-experience.png",
+    "certificados/desenvolvimento-e-programacao/pottencial-.net-developer.jpg",
+    "certificados/desenvolvimento-e-programacao/santander-fullstack-developer.jpg",
+    "certificados/desenvolvimento-e-programacao/orbi-web-games-developer.jpg"
   ],
-  "Design": [
-    "certificados/Design/desktop.ini",
-    "certificados/Design/Figma - Prototipando um App .png"
+  "design": [
+    "certificados/design/figma---prototipando-um-app-.png"
   ],
-  "Idiomas": [
-    "certificados/Idiomas/desktop.ini",
-    "certificados/Idiomas/Inglês 1-1.png",
-    "certificados/Idiomas/Inglês 1-2.png"
+  "idiomas": [
+    "certificados/idiomas/ingles-1-1.png",
+    "certificados/idiomas/ingles-1-2.png"
   ],
-  "Segurança": [
-    "certificados/Segurança/desktop.ini",
-    "certificados/Segurança/Direção Defensiva-1.png",
-    "certificados/Segurança/Direção Defensiva-2.png",
-    "certificados/Segurança/FDS - Ficha de dados de segurança-1.png",
-    "certificados/Segurança/FDS - Ficha de dados de segurança-2.png"
+  "seguranca": [
+    "certificados/seguranca/direcao-defensiva-1.png",
+    "certificados/seguranca/direcao-defensiva-2.png",
+    "certificados/seguranca/fds---ficha-de-dados-de-seguranca-1.png",
+    "certificados/seguranca/fds---ficha-de-dados-de-seguranca-2.png"
   ],
-  "Telecomunicação": [
-    "certificados/Telecomunicação/desktop.ini",
-    "certificados/Telecomunicação/Fibra Optica do Zero-1.png",
-    "certificados/Telecomunicação/Fibra Optica do Zero-2.png"
+  "telecomunicacao": [
+    "certificados/telecomunicacao/fibra-optica-do-zero-1.png",
+    "certificados/telecomunicacao/fibra-optica-do-zero-2.png"
   ]
 }
