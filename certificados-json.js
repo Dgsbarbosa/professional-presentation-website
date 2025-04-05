@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const certificadosDir = path.join(__dirname, "certificados");
+const certificadosDir = path.join(__dirname, "Certificados");
 const outputJson = path.join(__dirname, "certificados.json");
 
 const resultado = {};
@@ -14,7 +14,7 @@ fs.readdirSync(certificadosDir, { withFileTypes: true })
 
     const arquivos = fs.readdirSync(categoriaPath)
       .filter(file => !file.startsWith("."))
-      .map(file => `certificados/${categoria}/${file}`);
+      .map(file => `Certificados/${categoria}/${file}`);
 
     resultado[categoria] = arquivos;
   });
