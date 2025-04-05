@@ -1,12 +1,11 @@
-const apiKey = 'AIzaSyBpsw74UT4iBsjSQUBsJ4SosqtgjddOFiw';
-const folderPrincipalId = '1AL-UnO9ZGTGaMIYe3lcu7LLNFYqepCKT';
 
-let certificadosCarregados = false;
 
 document.addEventListener('DOMContentLoaded', () => {
     menuButtons();
-    setupImageModal();
 });
+
+let categoriasLocais = {};
+
 
 function menuButtons() {
     const buttons = document.querySelectorAll(".main-list-option");
@@ -16,7 +15,7 @@ function menuButtons() {
 }
 
 // Manipulação do menu
-async function showSection(event) {
+function showSection(event) {
     event.preventDefault();
 
     const linkMenu = event.target.closest("a");
@@ -38,141 +37,136 @@ async function showSection(event) {
     sectionNext.classList.add("visible");
     sectionNext.classList.remove("hidden");
     sectionNext.dataset.visibility = "active";
-    if (sectionIdMenu === "courses" && !certificadosCarregados) {
-        await carregarCategorias();
-        certificadosCarregados = true;
+    if (sectionIdMenu === "courses" && !window.certificadosCarregados) {
+        fetch("certificados.json")
+            .then(res => res.json())
+            .then(data => {
+                categoriasLocais = data;
+                carregarCategorias();
+                window.certificadosCarregados = true;
+            });
     }
 }
 
-async function carregarCategorias() {
+
+function carregarCategorias() {
     const listaCategorias = document.querySelector(".areas-list ul");
-    listaCategorias.innerHTML = ""; // limpa categorias existentes
+    listaCategorias.innerHTML = "";
 
-    const categorias = await obterCategorias();
-    const nomesOrdenados = Object.keys(categorias).sort();
-
+    const nomesOrdenados = Object.keys(categoriasLocais).sort();
     nomesOrdenados.forEach(nomeCategoria => {
         const li = document.createElement("li");
         li.textContent = nomeCategoria;
         li.style.cursor = "pointer";
-        li.addEventListener("click", () => listarCertificados(categorias[nomeCategoria], nomeCategoria));
+        li.addEventListener("click", () => listarCertificados(nomeCategoria));
         listaCategorias.appendChild(li);
     });
 }
 
-async function obterCategorias() {
-    const url = `https://www.googleapis.com/drive/v3/files?q='${folderPrincipalId}'+in+parents+and+mimeType='application/vnd.google-apps.folder'&key=${apiKey}&fields=files(id,name)`;
+function agruparCertificadosFrenteVerso(lista) {
+    const grupos = {};
 
-    try {
-        const resposta = await fetch(url);
-        const dados = await resposta.json();
+    lista
+        .filter(arquivo => arquivo.toLowerCase().endsWith(".png"))
+        .forEach(caminho => {
+            const nomeArquivo = caminho.split("/").pop().replace(".png", "");
+            const base = nomeArquivo.replace(/-\d$/, ''); // Ex: Inglês 1-1 → Inglês 1
 
-        let categorias = {};
-        dados.files.forEach(pasta => {
-            categorias[pasta.name] = pasta.id;
+            if (!grupos[base]) grupos[base] = [];
+            grupos[base].push({ caminho, nome: nomeArquivo });
         });
 
-        return categorias;
-    } catch (erro) {
-        console.error('Erro ao obter categorias:', erro);
-        return {};
-    }
+    return grupos;
 }
 
-async function listarCertificados(folderId, nomeCategoria) {
-    const url = `https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}&fields=files(id,name,mimeType,thumbnailLink, webContentLink)`;
+function listarCertificados(nomeCategoria) {
+    const certificados = categoriasLocais[nomeCategoria];
+    const container = document.querySelector('.area-selected-list.row');
+    container.innerHTML = "";
 
-    try {
-        const resposta = await fetch(url);
-        const dados = await resposta.json();
-        const container = document.querySelector('.area-selected-list.row');
-        container.innerHTML = ""; 
+    const titulo = document.querySelector('.area-selected-title');
+    titulo.textContent = nomeCategoria;
 
-       
-        const titulo = document.querySelector('.area-selected-title');
-        titulo.textContent = nomeCategoria;
-
-        if (!dados.files || dados.files.length === 0) {
-            container.innerHTML = '<p>Nenhum certificado encontrado.</p>';
-            return;
-        }
-
-        dados.files.forEach(arquivo => {
-            if (arquivo.mimeType.startsWith("image/") && arquivo.thumbnailLink) {
-                const imageId = arquivo.id;
-                const fullImageUrl = `https://drive.google.com/uc?export=view&id=${imageId}`;
-                addCertificate(arquivo.thumbnailLink, arquivo.name, fullImageUrl);
-            }
-
-        });
-    } catch (erro) {
-        console.error("Erro ao listar arquivos:", erro);
+    if (!certificados || certificados.length === 0) {
+        container.innerHTML = '<p>Nenhum certificado encontrado.</p>';
+        return;
     }
+
+    const grupos = agruparCertificadosFrenteVerso(certificados);
+
+    Object.keys(grupos).forEach(base => {
+        const imagens = grupos[base];
+        const temVerso = imagens.length > 1;
+        addCertificate(imagens, base, temVerso);
+    });
+
     setupImageModal();
 }
 
-function addCertificate(thumbnailUrl, certificateName, fullImageUrl) {
+function addCertificate(imagens, nomeSemExtensao, temVerso) {
     const container = document.querySelector('.area-selected-list.row');
 
     const divCertificate = document.createElement('div');
     divCertificate.className = 'div-certificate col-md-3';
 
+    const primeiraImagem = imagens[0].caminho;
+
     divCertificate.innerHTML = `
-        <div class="certificate">
-            <div class="icon-view">
-                <i class="fa-solid fa-eye"></i>
-            </div>
-            <img src="${thumbnailUrl}" data-full-image="${fullImageUrl}" alt="${certificateName}" class="certificate-thumbnail">
-            <span class="certificate-name">${certificateName}</span>
+        <div class="certificate" data-cert-nome="${nomeSemExtensao}" data-cert-imagens='${JSON.stringify(imagens.map(i => i.caminho))}'>
+            <img src="${primeiraImagem}" alt="${nomeSemExtensao}" class="certificate-thumbnail">
+            <span class="certificate-name">${nomeSemExtensao}${temVerso ? ' 🔄' : ''}</span>
         </div>
     `;
 
     container.appendChild(divCertificate);
-
 }
 
+
 function setupImageModal() {
-    const thumbnails = document.querySelectorAll(".certificate-thumbnail");
     const modal = document.getElementById("certificateModal");
     const modalImg = document.getElementById("fullImage");
     const closeModal = document.querySelector(".close");
+    const thumbnails = document.querySelectorAll(".certificate-thumbnail");
 
+    const botaoVerso = document.querySelector("#toggleSide");
+    let imagens = [];
+    let indiceAtual = 0;
     let scale = 1;
-    const minScale = 1;
-    const maxScale = 3;
 
     thumbnails.forEach(thumb => {
         thumb.addEventListener("click", function () {
-            modal.style.display = "block";
-            modalImg.src = this.dataset.fullImage;
-
-            alert(modalImg.src);
+            const divPai = this.closest(".certificate");
+            imagens = JSON.parse(divPai.dataset.certImagens);
+            indiceAtual = 0;
             scale = 1;
-            modalImg.style.transform = `scale(${scale}) `;
+            modalImg.src = imagens[indiceAtual];
+            modalImg.style.transform = `scale(${scale})`;
+            modal.style.display = "block";
+
+            botaoVerso.style.display = imagens.length > 1 ? "inline-block" : "none";
         });
     });
 
-    closeModal.addEventListener("click", function () {
+    closeModal.addEventListener("click", () => {
         modal.style.display = "none";
     });
 
-    modal.addEventListener("click", function (e) {
-        if (e.target === modal) {
-            modal.style.display = "none";
-        }
+    modal.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
     });
 
-    modal.addEventListener("wheel", function (e) {
+    modal.addEventListener("wheel", e => {
         e.preventDefault();
-
-        if (e.deltaY < 0) {
-            scale = Math.min(scale + 0.1, maxScale)
-        } else {
-            scale = Math.max(scale - 0.1, minScale);
-        }
+        scale += (e.deltaY < 0 ? 0.1 : -0.1);
+        scale = Math.min(Math.max(scale, 1), 3);
         modalImg.style.transform = `scale(${scale})`;
         modalImg.style.transition = "transform 0.2s ease";
     });
 
+    botaoVerso.addEventListener("click", () => {
+        if (imagens.length > 1) {
+            indiceAtual = (indiceAtual + 1) % imagens.length;
+            modalImg.src = imagens[indiceAtual];
+        }
+    });
 }
-

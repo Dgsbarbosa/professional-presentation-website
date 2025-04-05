@@ -1,0 +1,62 @@
+{
+  "Administração": [
+    "certificados/Administração/Auxiliar Administrativo-1.png",
+    "certificados/Administração/desktop.ini",
+    "certificados/Administração/Excel Intermediário-1.png",
+    "certificados/Administração/Excel Intermediário-2.png"
+  ],
+  "Atendimento e Relacionamento": [
+    "certificados/Atendimento e Relacionamento/Atendimento Encantador-1.png",
+    "certificados/Atendimento e Relacionamento/Atendimento Encantador-2.png",
+    "certificados/Atendimento e Relacionamento/desktop.ini"
+  ],
+  "Construção e Manutenção": [
+    "certificados/Construção e Manutenção/Básicos Prediais-1.png",
+    "certificados/Construção e Manutenção/desktop.ini",
+    "certificados/Construção e Manutenção/Eletricista Instalador Residencial -1.png",
+    "certificados/Construção e Manutenção/Eletricista Instalador Residencial -2.png",
+    "certificados/Construção e Manutenção/Energia Solar Fotovoltaica-1.png",
+    "certificados/Construção e Manutenção/Hidráulica Básica-1.png",
+    "certificados/Construção e Manutenção/Iluminação de Emergência-1.png",
+    "certificados/Construção e Manutenção/Instalação de Circuitos Fechados de TV - CFTV - Nível 1-1.png"
+  ],
+  "Desenvolvimento e Programação": [
+    "certificados/Desenvolvimento e Programação/Arquitetura de Software Transicao do Desenvolvimento para a Arquitetura-1.png",
+    "certificados/Desenvolvimento e Programação/CS50s Introduction to Computer Science-1.png",
+    "certificados/Desenvolvimento e Programação/CS50s Introduction to Programming with python-1.png",
+    "certificados/Desenvolvimento e Programação/CS50s Web Programming with Python-1.png",
+    "certificados/Desenvolvimento e Programação/CSharp Formacao Basica-1.png",
+    "certificados/Desenvolvimento e Programação/desktop.ini",
+    "certificados/Desenvolvimento e Programação/Fullstack Geração Tech Unimed-BH.jpg",
+    "certificados/Desenvolvimento e Programação/Fundamentos da Programacao-1.png",
+    "certificados/Desenvolvimento e Programação/Fundamentos de Programacao Algoritmos-1.png",
+    "certificados/Desenvolvimento e Programação/Ifood - Java Beginners.png",
+    "certificados/Desenvolvimento e Programação/Imersão AWS-1.png",
+    "certificados/Desenvolvimento e Programação/Inteligência Artificial Aplicada a Dados.png",
+    "certificados/Desenvolvimento e Programação/Linux Experience.png",
+    "certificados/Desenvolvimento e Programação/Pottencial .NET Developer.jpg",
+    "certificados/Desenvolvimento e Programação/Santander Fullstack Developer.jpg",
+    "certificados/Desenvolvimento e Programação/Órbi Web Games Developer.jpg"
+  ],
+  "Design": [
+    "certificados/Design/desktop.ini",
+    "certificados/Design/Figma - Prototipando um App .png"
+  ],
+  "Idiomas": [
+    "certificados/Idiomas/desktop.ini",
+    "certificados/Idiomas/Inglês 1-1.png",
+    "certificados/Idiomas/Inglês 1-2.png"
+  ],
+  "Segurança": [
+    "certificados/Segurança/desktop.ini",
+    "certificados/Segurança/Direção Defensiva-1.png",
+    "certificados/Segurança/Direção Defensiva-2.png",
+    "certificados/Segurança/FDS - Ficha de dados de segurança-1.png",
+    "certificados/Segurança/FDS - Ficha de dados de segurança-2.png"
+  ],
+  "Telecomunicação": [
+    "certificados/Telecomunicação/desktop.ini",
+    "certificados/Telecomunicação/Fibra Optica do Zero-1.png",
+    "certificados/Telecomunicação/Fibra Optica do Zero-2.png"
+  ]
+}
