@@ -1,11 +1,11 @@
-@import url("/css/main_body_left.css");
-@import url("/css/reset.css");
-@import url("/css/main_body_rigth.css");
-@import url("/css/resume.css");
-@import url("/css/basic_data.css");
-@import url("/css/social_medias.css");
-@import url("/css/professional.css");
-@import url("/css/courses.css");
+@import url("css/main_body_left.css");
+@import url("css/reset.css");
+@import url("css/main_body_rigth.css");
+@import url("css/resume.css");
+@import url("css/basic_data.css");
+@import url("css/social_medias.css");
+@import url("css/professional.css");
+@import url("css/courses.css");
 :root {
     /* text color */
     --primary-text-color: #3ab4dd;
