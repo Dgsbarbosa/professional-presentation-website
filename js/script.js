@@ -5,6 +5,29 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let categoriasLocais = {};
+const palavrasEspeciais = {
+    "ti": "TI",
+    "rh": "RH",
+    "html": "HTML",
+    "css": "CSS",
+    "cs50s": "CS50s",
+    "aws": "AWS",
+    "csharp": "CSharp",
+    "ifood": "iFood",
+    "programacao": "Programação",
+    "inteligencia": "Inteligência",
+    "dados": "Dados",
+    "fundamentos": "Fundamentos",
+    "algoritmos": "Algoritmos",
+    "manutencao": "Manutenção",
+    "construcao": "Construção", 
+    "telecomunicacao":"Telecomunicação",
+    "administracao": "Administração",
+    "seguranca": "Segurança"
+
+
+    // pode adicionar mais conforme os nomes dos certificados
+};
 
 
 function menuButtons() {
@@ -47,21 +70,55 @@ function showSection(event) {
             });
     }
 }
+function cleanWords(text) {
+    text = text.upper;
+    alert(text);
+    return text
+}
+
+function formatarNomeCategoria(nome) {
+    return nome
+        .split(/[\s\-]+/) 
+        .map(palavra => {
+            const palavraLower = palavra.toLowerCase();
+            if (palavraLower === "e") return "e";
+            if (palavraLower === "a") return "a";
+            if (palavraLower === "de") return "de";
+            if (palavraLower === "do") return "do";
+            if (palavraLower === "para") return "para";
+                
+            if (palavrasEspeciais[palavraLower]) return palavrasEspeciais[palavraLower];
+            return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase();
+        })
+        .join(" ");
+}
 
 
 function carregarCategorias() {
     const listaCategorias = document.querySelector(".areas-list ul");
     listaCategorias.innerHTML = "";
 
-    const nomesOrdenados = Object.keys(categoriasLocais).sort();
-    nomesOrdenados.forEach(nomeCategoria => {
+    const nomesOriginais = Object.keys(categoriasLocais);
+
+    
+    const nomesFormatados = nomesOriginais.map(nome => ({
+        original: nome,
+        exibicao: formatarNomeCategoria(nome)
+    }));
+
+    nomesFormatados.sort((a, b) => a.exibicao.localeCompare(b.exibicao));
+
+    nomesFormatados.forEach(({ original, exibicao }) => {
         const li = document.createElement("li");
-        li.textContent = nomeCategoria;
+        li.textContent = exibicao;
         li.style.cursor = "pointer";
-        li.addEventListener("click", () => listarCertificados(nomeCategoria));
+        li.addEventListener("click", () => 
+            listarCertificados(original));
+        
         listaCategorias.appendChild(li);
     });
 }
+
 
 function agruparCertificadosFrenteVerso(lista) {
     const grupos = {};
@@ -78,14 +135,13 @@ function agruparCertificadosFrenteVerso(lista) {
 
     return grupos;
 }
-
 function listarCertificados(nomeCategoria) {
     const certificados = categoriasLocais[nomeCategoria];
     const container = document.querySelector('.area-selected-list.row');
     container.innerHTML = "";
 
     const titulo = document.querySelector('.area-selected-title');
-    titulo.textContent = nomeCategoria;
+    titulo.textContent = formatarNomeCategoria(nomeCategoria);
 
     if (!certificados || certificados.length === 0) {
         container.innerHTML = '<p>Nenhum certificado encontrado.</p>';
@@ -97,22 +153,28 @@ function listarCertificados(nomeCategoria) {
     Object.keys(grupos).forEach(base => {
         const imagens = grupos[base];
         const temVerso = imagens.length > 1;
-        addCertificate(imagens, base, temVerso);
+        
+        const nomeFormatado = formatarNomeCategoria(base);
+
+        addCertificate(imagens, nomeFormatado, temVerso);
     });
 
     setupImageModal();
 }
 
+
+
 function addCertificate(imagens, nomeSemExtensao, temVerso) {
     const container = document.querySelector('.area-selected-list.row');
 
     const divCertificate = document.createElement('div');
-    divCertificate.className = 'div-certificate col-md-3';
+    divCertificate.className = 'div-certificate col-md-3 mx-2';
+    divCertificate.style.columnGap = "20px";
 
     const primeiraImagem = imagens[0].caminho;
 
     divCertificate.innerHTML = `
-        <div class="certificate" data-cert-nome="${nomeSemExtensao}" data-cert-imagens='${JSON.stringify(imagens.map(i => i.caminho))}'>
+        <div class="certificate " data-cert-nome="${nomeSemExtensao}" data-cert-imagens='${JSON.stringify(imagens.map(i => i.caminho))}'>
             <img src="${primeiraImagem}" alt="${nomeSemExtensao}" class="certificate-thumbnail">
             <span class="certificate-name">${nomeSemExtensao}${temVerso ? ' 🔄' : ''}</span>
         </div>

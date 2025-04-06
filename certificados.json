@@ -42,10 +42,10 @@
     "Certificados/Design/desktop.ini",
     "Certificados/Design/figma-prototipando-um-app-.png"
   ],
-  "idiomas": [
-    "Certificados/idiomas/desktop.ini",
-    "Certificados/idiomas/ingles-1-1.png",
-    "Certificados/idiomas/ingles-1-2.png"
+  "Idiomas": [
+    "Certificados/Idiomas/desktop.ini",
+    "Certificados/Idiomas/ingles-1-1.png",
+    "Certificados/Idiomas/ingles-1-2.png"
   ],
   "seguranca": [
     "Certificados/seguranca/desktop.ini",
@@ -57,6 +57,8 @@
   "telecomunicacao": [
     "Certificados/telecomunicacao/desktop.ini",
     "Certificados/telecomunicacao/fibra-optica-do-zero-1.png",
-    "Certificados/telecomunicacao/fibra-optica-do-zero-2.png"
+    "Certificados/telecomunicacao/fibra-optica-do-zero-2.png",
+    "Certificados/telecomunicacao/Tecnico-de-Fibra-IoT-2.0-1.png",
+    "Certificados/telecomunicacao/Tecnico-de-Fibra-IoT-2.0-2.png"
   ]
 }
