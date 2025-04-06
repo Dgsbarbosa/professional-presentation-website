@@ -165,8 +165,8 @@
 #toggleSide{
     display: none; 
     position: absolute; 
-    color: var(--primary-text-color);
-    background-color: var(--second-background-color);
+    color: var(--second-background-color);
+    background-color: var(--primary-text-color);
     border: none;
     bottom: 10px;
     z-index: 1000;

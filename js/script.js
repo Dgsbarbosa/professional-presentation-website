@@ -10,6 +10,10 @@ const palavrasEspeciais = {
     "rh": "RH",
     "html": "HTML",
     "css": "CSS",
+    "nr":"NR",
+    "sep":"SEP",
+    "lgpd":"LGPD",
+
     "cs50s": "CS50s",
     "aws": "AWS",
     "csharp": "CSharp",
@@ -23,7 +27,11 @@ const palavrasEspeciais = {
     "construcao": "Construção", 
     "telecomunicacao":"Telecomunicação",
     "administracao": "Administração",
-    "seguranca": "Segurança"
+    "seguranca": "Segurança",
+    "introducao":"Introdução",
+    "conscientizacao":"Conscientização",
+    "distracoes":"Distrações",
+    "intermediario":"Intermediário "
 
 
     // pode adicionar mais conforme os nomes dos certificados
