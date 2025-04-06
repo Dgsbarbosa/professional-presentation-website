@@ -1,0 +1,91 @@
+{
+  "Desenvolvimento": [
+    {
+      "nome": "JavaScript",
+      "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      "nivel": "Intermediário",
+      "link": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript"
+    },
+    {
+      "nome": "Python",
+      "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+      "nivel": "Intermediário",
+      "link": "https://www.python.org/"
+    },
+    {
+      "nome": "Django",
+      "icone": "assets/icons/django-icon.svg",
+      "nivel": "Intermediário",
+      "link": "https://www.djangoproject.com/"
+    },
+    {
+      "nome": "AWS Cloud",
+      "icone": "assets/icons/aws-icon.svg",
+      "nivel": "Básico",
+      "link": "https://aws.amazon.com/pt/"
+    }
+  ],
+
+  "Design": [
+    {
+      "nome": "Figma",
+      "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+      "nivel": "Básico",
+      "link": "https://www.figma.com/"
+    },
+    {
+      "nome": "SketchUp",
+      "icone": "https://cdn.brandfetch.io/id6JY24Jff/theme/dark/symbol.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+      "nivel": "Básico",
+      "link": "https://www.sketchup.com/"
+    },
+    {
+      "nome": "GIMP",
+      "icone": "https://cdn.brandfetch.io/idJCK2ze6E/theme/dark/logo.svg?c=1dxbfHSJFAPEGdCLU4o5B",
+      "nivel": "Básico",
+      "link": "https://www.gimp.org/"
+    },
+    {
+      "nome": "Canva",
+      "icone": "assets/icons/canva-icon.svg",
+      "nivel": "Básico",
+      "link": "https://www.canva.com/"
+    }
+  ],
+
+  "Escritório": [
+    {
+      "nome": "Word",
+      "icone": "assets/icons/word-icon.svg",
+      "nivel": "Intermediário",
+      "link": "https://www.microsoft.com/pt-br/microsoft-365/word"
+    },
+    {
+      "nome": "Excel",
+      "icone": "assets/icons/excel-icon.svg",
+      "nivel": "Intermediário",
+      "link": "https://www.microsoft.com/pt-br/microsoft-365/excel"
+    },
+    {
+      "nome": "PowerPoint",
+      "icone": "assets/icons/powerpoint-icon.svg",
+      "nivel": "Intermediário",
+      "link": "https://www.microsoft.com/pt-br/microsoft-365/powerpoint"
+    }
+  ],
+
+  "Outras Ferramentas": [
+    {
+      "nome": "ChatGPT",
+      "icone": "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
+      "nivel": "Intermediário",
+      "link": "https://chat.openai.com/"
+    },
+    {
+      "nome": "Linux",
+      "icone": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+      "nivel": "Básico",
+      "link": "https://www.linux.org/"
+    }
+  ]
+}

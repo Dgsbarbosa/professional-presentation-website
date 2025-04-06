@@ -33,24 +33,7 @@
 
 }
 
-.div-timeline::-webkit-scrollbar{
-    width: 8px;
-    
-}
-.div-timeline::-webkit-scrollbar-track{
 
-    background-color: #222;
-    border-radius: 8px;
-}
-
-.div-timeline::-webkit-scrollbar-thumb{
-    background-color: var(--primary-text-color);
-    border-radius: 8px;
-}
-
-.div-timeline::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-text-color); 
-}
 
 .div-timeline {
     scrollbar-width: thin; 

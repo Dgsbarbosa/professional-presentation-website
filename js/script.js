@@ -5,14 +5,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let categoriasLocais = {};
+
 const palavrasEspeciais = {
     "ti": "TI",
     "rh": "RH",
     "html": "HTML",
     "css": "CSS",
-    "nr":"NR",
-    "sep":"SEP",
-    "lgpd":"LGPD",
+    "nr": "NR",
+    "sep": "SEP",
+    "lgpd": "LGPD",
 
     "cs50s": "CS50s",
     "aws": "AWS",
@@ -24,14 +25,14 @@ const palavrasEspeciais = {
     "fundamentos": "Fundamentos",
     "algoritmos": "Algoritmos",
     "manutencao": "Manutenção",
-    "construcao": "Construção", 
-    "telecomunicacao":"Telecomunicação",
+    "construcao": "Construção",
+    "telecomunicacao": "Telecomunicação",
     "administracao": "Administração",
     "seguranca": "Segurança",
-    "introducao":"Introdução",
-    "conscientizacao":"Conscientização",
-    "distracoes":"Distrações",
-    "intermediario":"Intermediário "
+    "introducao": "Introdução",
+    "conscientizacao": "Conscientização",
+    "distracoes": "Distrações",
+    "intermediario": "Intermediário "
 
 
     // pode adicionar mais conforme os nomes dos certificados
@@ -78,15 +79,18 @@ function showSection(event) {
             });
     }
 }
+
 function cleanWords(text) {
     text = text.upper;
     alert(text);
     return text
 }
 
+
+//  Aba de certificados
 function formatarNomeCategoria(nome) {
     return nome
-        .split(/[\s\-]+/) 
+        .split(/[\s\-]+/)
         .map(palavra => {
             const palavraLower = palavra.toLowerCase();
             if (palavraLower === "e") return "e";
@@ -94,7 +98,7 @@ function formatarNomeCategoria(nome) {
             if (palavraLower === "de") return "de";
             if (palavraLower === "do") return "do";
             if (palavraLower === "para") return "para";
-                
+
             if (palavrasEspeciais[palavraLower]) return palavrasEspeciais[palavraLower];
             return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase();
         })
@@ -108,7 +112,7 @@ function carregarCategorias() {
 
     const nomesOriginais = Object.keys(categoriasLocais);
 
-    
+
     const nomesFormatados = nomesOriginais.map(nome => ({
         original: nome,
         exibicao: formatarNomeCategoria(nome)
@@ -120,9 +124,9 @@ function carregarCategorias() {
         const li = document.createElement("li");
         li.textContent = exibicao;
         li.style.cursor = "pointer";
-        li.addEventListener("click", () => 
+        li.addEventListener("click", () =>
             listarCertificados(original));
-        
+
         listaCategorias.appendChild(li);
     });
 }
@@ -161,7 +165,7 @@ function listarCertificados(nomeCategoria) {
     Object.keys(grupos).forEach(base => {
         const imagens = grupos[base];
         const temVerso = imagens.length > 1;
-        
+
         const nomeFormatado = formatarNomeCategoria(base);
 
         addCertificate(imagens, nomeFormatado, temVerso);
@@ -238,5 +242,69 @@ function setupImageModal() {
             indiceAtual = (indiceAtual + 1) % imagens.length;
             modalImg.src = imagens[indiceAtual];
         }
+    });
+}
+
+
+// aba de ferramentas
+let tecnologiasCarregadas = false;
+
+
+function carregarTecnologias() {
+    if (tecnologiasCarregadas) return;
+
+    fetch('toolsData.json')
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById('tech-container');
+            container.innerHTML = '';
+
+            Object.entries(data).forEach(([categoria, ferramentas]) => {
+                const sectionTools = document.createElement('div');
+                sectionTools.className = "section-tools"
+                const sectionTitle = document.createElement('h3');
+                
+
+                sectionTitle.textContent = categoria;
+                sectionTools.appendChild(sectionTitle);
+                container.appendChild(sectionTools);
+
+                const grid = document.createElement('div');
+                grid.className = 'tools-grid row';
+
+                ferramentas.forEach(ferramenta => {
+                    const item = document.createElement('div');
+                    item.className = 'tool-item col-md-2';
+
+                    item.innerHTML = `
+            <a href="${ferramenta.link}" target="_blank" rel="noopener noreferrer">
+    <img src="${ferramenta.icone}" alt="imagem de icone do ${ferramenta.nome}">
+    <span>${ferramenta.nome}</span>
+    <div class="tooltip">Nivel: ${ferramenta.nivel}</div>
+  </a>
+          `;
+
+                    grid.appendChild(item);
+
+
+                });
+
+                sectionTools.appendChild(grid);
+                const lineHrTools = document.createElement('hr');
+                lineHrTools.className = "lineHr";
+
+                sectionTools.appendChild(lineHrTools);
+
+            });
+
+            tecnologiasCarregadas = true;
+
+        })
+        .catch(error => console.error('Erro ao carregar o JSON:', error));
+}
+const techTab = document.querySelector('[data-target="tools"]');
+if (techTab) {
+    techTab.addEventListener('click', () => {
+        carregarTecnologias();
     });
 }
