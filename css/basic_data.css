@@ -1,25 +1,25 @@
 .basic-data{
-    display: flex;
     height: 100%;
     width: 100%;
     color: var(--second-text-color);
     padding: 30px;    
     gap: 20px;
-    text-shadow: 5px 5px 5px black;  
-    
-}
+    text-shadow: 0px 1px 5px black;  
+    overflow: hidden;
+    overflow-y: auto;
 
-.basic-data i{
-    /* display: none; */
+
+    
 }
 
 .datas{
     display: flex;
-  
-
     flex-direction: column;
     justify-content: center;
+    padding-top: 30px;
     background-color: var(--second-background-color);
+    width: 300px;
+    /* overflow-y: auto; */
     
 }
 
@@ -32,10 +32,6 @@
 
 }
 
-.basic span{
-    color: var(--primary-text-color);
-}
-
 .datas{
     padding-bottom: 10px;
 }
@@ -45,10 +41,15 @@
     display: flex;
     flex-direction: column;
 }
+.basic-information span{
+    color: var(--primary-text-color);
 
-.formation {
+}
+.basic-occupation{
    /* border: 2px solid rgb(241, 0, 0); */
    /* padding-left: 20px; */
+   display: flex;
+
     
 }
 

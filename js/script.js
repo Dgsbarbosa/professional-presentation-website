@@ -2,8 +2,50 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     menuButtons();
+    fetch('skills.json')
+    .then(response => response.json())
+    .then(data => renderSkills(data));
 });
+function renderSkills(skills) {
+    const container = document.getElementById('skills-container');
+  
+    skills.forEach(skill => {
+      const card = document.createElement('div');
+      card.className = 'skill-card';
+  
+      const name = document.createElement('div');
+      name.className = 'skill-name';
+      name.textContent = skill.nome;
+  
+      const level = document.createElement('span');
+      level.className = `skill-level ${getLevelClass(skill.nivel)}`;
+      level.textContent = skill.nivel;
+  
+ 
+  
+      card.appendChild(name);
+      card.appendChild(level);
+     
+  
+      container.appendChild(card);
 
+      const lineHr = document.createElement('hr');
+      lineHr.className = "line-hr-skill"
+        
+      container.appendChild(lineHr);
+    });
+  }
+  
+  function getLevelClass(nivel) {
+    switch (nivel.toLowerCase()) {
+      case 'básico': return 'basic';
+      case 'intermediário': return 'intermediate';
+      case 'avançado': return 'advanced';
+      case 'especialista': return 'specialist';
+      default: return '';
+    }
+  }
+  
 let categoriasLocais = {};
 
 const palavrasEspeciais = {
