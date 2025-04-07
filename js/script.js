@@ -308,3 +308,72 @@ if (techTab) {
         carregarTecnologias();
     });
 }
+
+let projetosCarregados = false;
+
+function carregarProjetos(project_type){
+    if (projetosCarregados) return;
+    fetch("projects.json")
+    .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById('projects-selected');
+            container.innerHTML = '';
+           
+
+            Object.entries(data).forEach(([categoria, ferramentas]) => {
+
+                // alert(categoria + " " + ferramentas);
+                const sectionTools = document.createElement('div');
+                sectionTools.className = "section-tools";
+                
+
+                sectionTitle.textContent = categoria;
+                sectionTools.appendChild(sectionTitle);
+                container.appendChild(sectionTools);
+
+                
+
+                const grid = document.createElement('div');
+                grid.className = 'tools-grid row';
+
+                ferramentas.forEach(ferramenta => {
+                    const item = document.createElement('div');
+                    item.className = 'tool-item col-md-2';
+                    
+
+                    item.innerHTML = `
+            <a href="${ferramenta.link}" target="_blank" rel="noopener noreferrer">
+    <img src="${ferramenta.icone}" alt="imagem de icone do ${ferramenta.nome}">
+    <span>${ferramenta.titulo}</span>
+    <div class="tooltip">Nivel: ${ferramenta.nivel}</div>
+  </a>
+          `;
+
+                    grid.appendChild(item);
+
+
+                });
+
+                sectionTools.appendChild(grid);
+                const lineHrTools = document.createElement('hr');
+                lineHrTools.className = "lineHr";
+
+                sectionTools.appendChild(lineHrTools);
+
+            });
+
+            projetosCarregados = true;
+
+        })
+        .catch(error => console.error('Erro ao carregar o JSON:', error));
+}
+
+const projectsSelected = document.querySelectorAll(".type-projects-li");
+if (projectsSelected) {
+    projectsSelected.forEach(project =>{
+
+    project.addEventListener('click', () => {
+        carregarProjetos(project.dataset.project);
+    })
+    });
+}

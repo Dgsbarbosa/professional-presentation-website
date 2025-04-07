@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/professional.css">
     <link rel="stylesheet" href="css/courses.css">
     <link rel="stylesheet" href="css/tools.css">
+    <link rel="stylesheet" href="css/projects.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -29,7 +30,7 @@
     <header class="main-left">
 
       <section class="main-left-top">
-        <h1>DB</h1>
+        <h1><a href="">DB</a></h1>
       </section>
 
       <section class="main-left-options">
@@ -84,7 +85,7 @@
               </li>
 
             </a>
-
+<!-- 
             <a href="#" data-target="projects">
 
               <li class="main-list-option">
@@ -112,7 +113,7 @@
 
               </li>
 
-            </a>
+            </a> -->
 
           </ul>
 
@@ -121,9 +122,11 @@
       </section>
 
       <section class="main-left-down">
-        <a href="">
+        <a href="https://drive.google.com/uc?export=download&id=1AuTP1DtL4apYKpqkSTchYH5bBG8te0qw" download class="tooltip-download">
           <i class="fa-solid fa-cloud-arrow-down"></i>
+          <span class="tooltip-text">Baixar currículo</span>
         </a>
+   
       </section>
 
 
@@ -131,12 +134,12 @@
 
     <section class="body-right ">
 
-      <div class="resume hidden" id="resume" data-visibility="deactive">
+      <div class="resume " id="resume" data-visibility="active">
 
         <div class="photo ">
           <div class="name-resume">
             <h2>Douglas Barbosa</h2>
-            <span>Supervisor Operacional</span>
+            <!-- <span>Supervisor Operacional</span> -->
           </div>
 
           <div class="filter-photo-resume">
@@ -272,7 +275,7 @@
 
             <p class="col-sm-3">
               <i class="fa-solid fa-user-tie"></i>
-              Cargo Atual: <span class="basic-data-text">Supervisor Operacional</span>
+              Cargo Atual: <span class="basic-data-text">Mantenedor Predial</span>
             </p>
             <p class="col-sm-3">
               <i class="fa-solid fa-building"></i>
@@ -348,6 +351,13 @@
                       </div>
                       <h3 class="title-timeline">Atualmente</h3>
                       <p class="description">
+                        Atualmente, ocupo o cargo de <span class="destak">Mantenedor Predial</span> na <span
+                          class="destak">EQS Engenharia</span>, onde atuo na execução de serviços de <span class="destak">manutenção predial</span>. Com experiência prática em atividades de conservação e suporte técnico, minha principal responsabilidade é garantir a <span class="destak">eficiência</span> e a qualidade dos serviços prestados, assegurando o perfeito funcionamento da <span class="destak">infraestrutura de edifícios públicos</span>.
+                      
+                        Minha atuação exige habilidades de organização, proatividade e comunicação eficaz com diferentes áreas técnicas, sempre com <span class="destak">foco em resultados</span>, <span class="destak">segurança</span> e <span class="destak">excelência operacional</span>.
+                      </p>
+                      
+                      <!-- <p class="description">
                         Atualmente, ocupo o cargo de <span class="destak">Supervisor Operacional</span> na <span
                           class="destak">EQS
                           Engenharia</span>, onde lidero equipes multidisciplinares
@@ -363,7 +373,7 @@
                         Minha atuação exige habilidades de gestão, resolução de problemas e comunicação eficaz entre
                         diferentes áreas técnicas, sempre com <span class="destak">foco em resultados</span>, <span
                           class="destak">segurança</span> e <span class="destak">excelência operacional</span>.
-                      </p>
+                      </p> -->
                     </div>
                   </div>
 
@@ -524,15 +534,7 @@
 
               <div class="area-selected-list row">
 
-                <div class="div-certificate col-md-4">
-                  
-                  <div class="certificate">
-                    
-                    <img src="https://gustavoguanabara.github.io/html-css/exercicios/modulo-01/ex003/logo-html.png"
-                      alt="Certificado 1" class="certificate-thumbnail">
-                    <span class="certificate-name">Certificate Name</span>
-                  </div>
-                </div>
+                
 
                 <!-- --- -->
 
@@ -558,7 +560,7 @@
 
       </div>
 
-      <div class="tools visible" id="tools" data-visibility="active">
+      <div class="tools hidden" id="tools" data-visibility="deactive">
         <h2 class="h2-section">Tecnologias e Softwares</h2>
         <span class="text-muted-tools ">clique e conheça as ferramentas</span>
 
@@ -569,6 +571,30 @@
       
         </div>
         
+
+      </div>
+
+      <div class="projects hidden" id="projects" data-visibility="deactive">
+        <h2 class="h2-section">Projetos</h2>
+        
+        <div class="main-projects">
+
+          <div class="type-projects">            
+            <h6>Tipo de projeto</h6>
+            <ul>
+              <li class="type-projects-li" data-project="construcao">Construção e Manutenção</li>
+              <li class="type-projects-li" data-project="desenvolvimento">Desenvolvimento e Programação</li>
+            </ul>
+          </div>
+
+          <div class="projects-selected" id="projects-selected">
+teste
+          </div>
+
+
+
+        </div>
+
 
       </div>
 

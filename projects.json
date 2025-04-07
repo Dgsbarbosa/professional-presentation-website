@@ -1,0 +1,21 @@
+
+
+{
+    "Construção":[
+        {
+            "titulo": "Reforma Completa de Imóvel",
+            "descricao":"Reforma completa de imóvel",
+            "miniatura":"https://i.ibb.co/LDhJkdMg/telhado-1012.jpg",
+            "album":"https://ibb.co/album/TrZvkb"
+        }
+    ],
+
+    "Desenvolvimento":[
+        {
+            "titulo": "Projeto Git",
+            "descricao":"Projeto de programação exemplo",
+            "miniatura":"https://i.ibb.co/xwRq1dV/background.jpg",
+            "link":"https://ibb.co/album/TrZvkb"
+        }
+    ]
+}
