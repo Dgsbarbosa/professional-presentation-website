@@ -1,18 +1,21 @@
 .resume {
-
     /* border: 1px solid rgb(51, 255, 0); */
+    padding-top: 30px;
+
     align-items: center;
     text-shadow: 2px 2px 2px black;
     overflow: hidden;
 
 }
 .professional-heading {
-    font-size: 1em;
+
+    font-size: 0.8em;
     padding-top: 0;
-    margin-top: 0;
+    
     margin-bottom: 20px;
     color: var(--primary-text-color);
     text-shadow: 1px 1px 100px rgb(0, 0, 0);
+
 
 }
 .resume h2 {
@@ -24,8 +27,6 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    /* background-color: #121212; */
-    /* ou o fundo do seu site */
     padding: 20px;
     border-bottom: 1px solid #333;
 }
@@ -47,38 +48,36 @@
     filter: contrast(1.2) brightness(1.1);
 }
 
-.name-resume h2 {
-    margin: 0;
-}
 
 .resume-content {
     /* border: 1px solid rgb(51, 255, 0); */
-
     padding: 20px;
-    color: var(--second-text-color);
-    display: flex;
-    height: 350px;    
+    color: var(--second-text-color);   
+    height: 70vh;    
     font-family: "Montserrat";
     overflow-y: auto;
+    padding-bottom: 50px;
+
+    
 }
 
 .resume-section,.skills-section{
+    /* border: 1px solid rgb(51, 255, 0); */
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
     padding: 10px;
 }
 
 .resume-content h2 {
-    font-weight: 900;
+    font-weight: 400;
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
-
-
 
 .resume-content p {
     margin-top: 20px;
     font-size: 12.5px;
     width: 90%;
+    text-align:start ;
 }
 
 .strong-resume {
@@ -100,6 +99,12 @@
     font-size: 0.8em;
 }
 
+#skills-container{
+    /* border: 1px solid rgb(51, 255, 0); */
+    padding-bottom: 30px;
+
+}
+
 .skill-card {
     /* border: 1px solid rgb(51, 255, 0); */
     margin-top: 15px;
@@ -115,7 +120,7 @@
 .skill-name {
     font-size: 0.8rem;
     margin-right: 10px;
-    color: var();
+    margin-left: 10px;
 
 }
 
@@ -126,6 +131,7 @@
     border-radius: 6px;
     font-size: 0.6rem;
     font-weight: 600;
+    margin-right: 10px;
 }
 
 .basic {
@@ -150,6 +156,7 @@
 
 .skill-description {
     margin-top: 6px;
+    
     font-size: 0.95rem;
     color: #444;
 }
@@ -161,28 +168,33 @@
 
 }
 
-@media(max-width: 1000px) {
-    .div-main-body {
-        /* background-color: aliceblue; */
-    }
-
-    .main-left-top {
-        color: black;
-    }
-
-    .resume {
-        /* border: 2px solid white; */
-    }
-
-    .resume .photo {
-        /* border: 2px solid white; */
-        width: 200px;
-    }
-}
 
 @media (max-width:700px){
+    .photo-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+    }
     .professional-heading {
-        /* border: 2px solid rgb(207, 28, 28); */
-        font-size: 12px;
+        font-size: 14px;
+    }
+    .resume-content {
+        height: 50vh;
+    }
+
+    .resume-section{
+
+        /* border: 2px solid black; */
+        text-align: center;
+        display: flex;
+       
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .resume-section p{
+    text-align: justify;
     }
 }
