@@ -21,10 +21,10 @@
 .div-main-body {
 
   display: flex;
-  height: 95vh;
-
-  width: 95vw;
+  height: 95%;
+  width: 95%;
   margin-top: 10px;
+  overflow: hidden;
   
 }
 

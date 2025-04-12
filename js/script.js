@@ -91,6 +91,9 @@ function menuButtons() {
 // Manipulação do menu
 function showSection(event) {
     event.preventDefault();
+    
+
+
 
     const linkMenu = event.target.closest("a");
     const sectionIdMenu = linkMenu.getAttribute("data-target");

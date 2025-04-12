@@ -9,7 +9,7 @@
     z-index: 10;
     background: var(--second-background-color);
     text-shadow: 2px 2px 2px black;
-    padding-left: 10px;
+    padding: 0px 10px;
     /* padding-right: 10px;background-color: lightblue; */
     box-shadow: 10px 0px 15px rgba(0, 0, 0, 0.3);
 
@@ -20,7 +20,7 @@
 .main-left-top a{
     /* border: 1px solid black; */
     text-decoration: none;
-
+    font-size: 0.8em;
     padding-top: 10px;
     height: 5%;
     color: var(--primary-text-color);
@@ -72,7 +72,6 @@
 .main-left-options:hover .main-list-option {
     display: flex;
     align-items: center;
-
 }
 
 .main-left-options:hover .main-list {
