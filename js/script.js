@@ -170,6 +170,7 @@ function carregarCategorias() {
         li.style.cursor = "pointer";
         li.addEventListener("click", () =>
             listarCertificados(original));
+            
 
         listaCategorias.appendChild(li);
     });
@@ -224,7 +225,8 @@ function addCertificate(imagens, nomeSemExtensao, temVerso) {
     const container = document.querySelector('.area-selected-list.row');
 
     const divCertificate = document.createElement('div');
-    divCertificate.className = 'div-certificate col-md-3 mx-2';
+    divCertificate.className = 'div-certificate col-sm-2 col-md-3 col-lg-3 mx-2';
+    divCertificate.style.columnGap = "20px";
     divCertificate.style.columnGap = "20px";
 
     const primeiraImagem = imagens[0].caminho;
@@ -254,12 +256,14 @@ function setupImageModal() {
     thumbnails.forEach(thumb => {
         thumb.addEventListener("click", function () {
             const divPai = this.closest(".certificate");
+            // divPai.style.display = "flex";
             imagens = JSON.parse(divPai.dataset.certImagens);
             indiceAtual = 0;
             scale = 1;
             modalImg.src = imagens[indiceAtual];
             modalImg.style.transform = `scale(${scale})`;
-            modal.style.display = "block";
+            modal.style.display = "flex";
+            
 
             botaoVerso.style.display = imagens.length > 1 ? "inline-block" : "none";
         });
@@ -318,7 +322,7 @@ function carregarTecnologias() {
 
                 ferramentas.forEach(ferramenta => {
                     const item = document.createElement('div');
-                    item.className = 'tool-item col-md-2';
+                    item.className = 'tool-item col-sm-2 col-md-2';
 
                     item.innerHTML = `
             <a href="${ferramenta.link}" target="_blank" rel="noopener noreferrer">
