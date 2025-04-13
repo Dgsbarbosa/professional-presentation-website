@@ -168,9 +168,10 @@
 
 }
 
-@media (max-height:400px) {
+@media (max-width:400px) {
     .resume{
-    border: 1px solid rgb(51, 255, 0);
+    /* border: 1px solid rgb(255, 0, 0); */
+
     overflow-y: auto;
 
     }
@@ -191,7 +192,7 @@
         font-size: 14px;
     }
     .resume-content {
-        height: 50vh;
+        
     }
 
     .resume-section{
@@ -209,3 +210,5 @@
     text-align: center;
     }
 }
+
+
