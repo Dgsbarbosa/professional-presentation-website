@@ -3,49 +3,49 @@
 document.addEventListener('DOMContentLoaded', () => {
     menuButtons();
     fetch('skills.json')
-    .then(response => response.json())
-    .then(data => renderSkills(data));
+        .then(response => response.json())
+        .then(data => renderSkills(data));
 });
 function renderSkills(skills) {
     const container = document.getElementById('skills-container');
-  
-    skills.forEach(skill => {
-      const card = document.createElement('div');
-      card.className = 'skill-card';
-  
-      const name = document.createElement('div');
-      name.className = 'skill-name';
-      name.textContent = skill.nome;
-  
-      const level = document.createElement('span');
-      level.className = `skill-level ${getLevelClass(skill.nivel)}`;
-      level.textContent = skill.nivel;
-  
- 
-  
-      card.appendChild(name);
-      card.appendChild(level);
-     
-  
-      container.appendChild(card);
 
-      const lineHr = document.createElement('hr');
-      lineHr.className = "line-hr-skill"
-        
-      container.appendChild(lineHr);
+    skills.forEach(skill => {
+        const card = document.createElement('div');
+        card.className = 'skill-card';
+
+        const name = document.createElement('div');
+        name.className = 'skill-name';
+        name.textContent = skill.nome;
+
+        const level = document.createElement('span');
+        level.className = `skill-level ${getLevelClass(skill.nivel)}`;
+        level.textContent = skill.nivel;
+
+
+
+        card.appendChild(name);
+        card.appendChild(level);
+
+
+        container.appendChild(card);
+
+        const lineHr = document.createElement('hr');
+        lineHr.className = "line-hr-skill"
+
+        container.appendChild(lineHr);
     });
-  }
-  
-  function getLevelClass(nivel) {
+}
+
+function getLevelClass(nivel) {
     switch (nivel.toLowerCase()) {
-      case 'básico': return 'basic';
-      case 'intermediário': return 'intermediate';
-      case 'avançado': return 'advanced';
-      case 'especialista': return 'specialist';
-      default: return '';
+        case 'básico': return 'basic';
+        case 'intermediário': return 'intermediate';
+        case 'avançado': return 'advanced';
+        case 'especialista': return 'specialist';
+        default: return '';
     }
-  }
-  
+}
+
 let categoriasLocais = {};
 
 const palavrasEspeciais = {
@@ -82,16 +82,15 @@ const palavrasEspeciais = {
 
 
 function menuButtons() {
-    const buttons = document.querySelectorAll(".main-list-option");
+    const buttons = document.querySelectorAll(".nav-link");
     buttons.forEach(button => {
-        button.addEventListener("click", showSection)
-    })
+        button.addEventListener("click", showSection);
+    });
 }
-
 // Manipulação do menu
 function showSection(event) {
     event.preventDefault();
-    
+
 
 
 
@@ -308,7 +307,7 @@ function carregarTecnologias() {
                 const sectionTools = document.createElement('div');
                 sectionTools.className = "section-tools"
                 const sectionTitle = document.createElement('h3');
-                
+
 
                 sectionTitle.textContent = categoria;
                 sectionTools.appendChild(sectionTitle);
@@ -356,27 +355,27 @@ if (techTab) {
 
 let projetosCarregados = false;
 
-function carregarProjetos(project_type){
+function carregarProjetos(project_type) {
     if (projetosCarregados) return;
     fetch("projects.json")
-    .then(res => res.json())
+        .then(res => res.json())
         .then(data => {
             const container = document.getElementById('projects-selected');
             container.innerHTML = '';
-           
+
 
             Object.entries(data).forEach(([categoria, ferramentas]) => {
 
                 // alert(categoria + " " + ferramentas);
                 const sectionTools = document.createElement('div');
                 sectionTools.className = "section-tools";
-                
+
 
                 sectionTitle.textContent = categoria;
                 sectionTools.appendChild(sectionTitle);
                 container.appendChild(sectionTools);
 
-                
+
 
                 const grid = document.createElement('div');
                 grid.className = 'tools-grid row';
@@ -384,7 +383,7 @@ function carregarProjetos(project_type){
                 ferramentas.forEach(ferramenta => {
                     const item = document.createElement('div');
                     item.className = 'tool-item col-md-2';
-                    
+
 
                     item.innerHTML = `
             <a href="${ferramenta.link}" target="_blank" rel="noopener noreferrer">
@@ -415,10 +414,31 @@ function carregarProjetos(project_type){
 
 const projectsSelected = document.querySelectorAll(".type-projects-li");
 if (projectsSelected) {
-    projectsSelected.forEach(project =>{
+    projectsSelected.forEach(project => {
 
-    project.addEventListener('click', () => {
-        carregarProjetos(project.dataset.project);
-    })
+        project.addEventListener('click', () => {
+            carregarProjetos(project.dataset.project);
+        })
     });
 }
+
+document.querySelectorAll('.main-left .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelectorAll('.main-left .nav-link').forEach(el => el.classList.remove('active-link'));
+        link.classList.add('active-link');
+    });
+});
+
+document.querySelectorAll('.main-left .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        const navbarCollapse = document.getElementById('navbarSupportedContent');
+        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+        if (bsCollapse) {
+            bsCollapse.hide();
+        }
+
+        // Classe ativa
+        document.querySelectorAll('.main-left .nav-link').forEach(el => el.classList.remove('active-link'));
+        link.classList.add('active-link');
+    });
+});

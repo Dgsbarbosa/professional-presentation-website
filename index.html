@@ -28,114 +28,72 @@
 
   <div class="div-main-body ">
 
-    <header class="main-left">
+    <header class="main-left ">
 
-      <section class="main-left-top">
-        <h1><a href="">DB</a></h1>
-      </section>
-
-      <section class="main-left-options">
-
-        <nav>
-
-          <ul class="main-list">
-
-            <a href="#" data-target="resume">
-
-              <li class="main-list-option">
-                <i class="fa-solid fa-file"></i>
-                <span class="main-list-option-text">Resumo</span>
+      <nav class="navbar navbar-expand-lg">
+        <div class=" container-fluid flex-lg-column align-items-lg-start">
+          <div class="main-left-top">
+            <h1>
+              <a class="navbar-brand" href="#" onclick="location.reload()">D<span class="name-hidden" >ouglas </span>B<span class="name-hidden" >arbosa</span></a>
+            </h1>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+    
+          <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+            <ul class="navbar-nav flex-lg-column w-100 ">
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-target="resume">
+                  <i class="fa-solid fa-file"></i>
+                  <span class="nav-link-text">Resumo</span>
+                </a>
               </li>
-
-            </a>
-
-            <a href="#" data-target="basic-data">
-
-              <li class="main-list-option">
-                <i class="fa-solid fa-address-card"></i>
-                <span class="main-list-option-text">Dados Básicos</span>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-target="basic-data">
+                  <i class="fa-solid fa-address-card"></i>
+                  <span class="nav-link-text">Dados Básicos</span>
+                </a>
               </li>
-
-            </a>
-
-            <a href="#" data-target="professional">
-
-              <li class="main-list-option">
-                <i class="fa-solid fa-road"></i>
-                <span class="main-list-option-text">Trajetória Profissional</span>
-
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-target="professional">
+                  <i class="fa-solid fa-road"></i>
+                  <span class="nav-link-text">Trajetória Profissional</span>
+                </a>
               </li>
-
-            </a>
-
-            <a href="#" data-target="courses">
-
-              <li class="main-list-option">
-                <i class="fa-solid fa-award"></i>
-                <span class="main-list-option-text">Cursos e Qualificações</span>
-
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-target="courses">
+                  <i class="fa-solid fa-award"></i>
+                  <span class="nav-link-text">Cursos e Qualificações</span>
+                </a>
               </li>
-
-            </a>
-
-            <a href="#" data-target="tools" id="tech-tab">
-
-              <li class="main-list-option">
-                <i class="fa-solid  fa-tools "></i>
-                <span class="main-list-option-text">Tecnologias e Softwares</span>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-target="tools" id="tech-tab">
+                  <i class="fa-solid fa-tools"></i>
+                  <span class="nav-link-text">Tecnologias e Softwares</span>
+                </a>
               </li>
+            </ul>
 
-            </a>
-<!-- 
-            <a href="#" data-target="projects">
+            <div class="main-left-down align-items-lg-start">
+              <a href="https://drive.google.com/uc?export=download&id=1AuTP1DtL4apYKpqkSTchYH5bBG8te0qw" download class="tooltip-download">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+                <span class="tooltip-text">Baixar currículo</span>
+                <span class="nav-link-text">Baixar currículo</span>
+              </a>
+            </div>
+            
+          </div>
+    
+          
 
-              <li class="main-list-option">
-                <i class="fa-solid fa-diagram-project"></i>
-                <span class="main-list-option-text">Projetos</span>
-              </li>
-
-            </a>
-
-            <a href="#" data-target="skills">
-
-              <li class="main-list-option">
-                <i class="fa-solid fa-house-laptop"></i>
-                <span class="main-list-option-text">Habilidades Técnicas</span>
-
-              </li>
-
-            </a>
-
-            <a href="#" data-target="social-media">
-
-              <li class="main-list-option">
-                <i class="fa-solid fa-house-laptop"></i>
-                <span class="main-list-option-text">Redes Sociais</span>
-
-              </li>
-
-            </a> -->
-
-          </ul>
-
-        </nav>
-
-      </section>
-
-      <section class="main-left-down">
-        <a href="https://drive.google.com/uc?export=download&id=1AuTP1DtL4apYKpqkSTchYH5bBG8te0qw" download class="tooltip-download">
-          <i class="fa-solid fa-cloud-arrow-down"></i>
-          <span class="tooltip-text">Baixar currículo</span>
-        </a>
-   
-      </section>
-
-
+        </div>
+      </nav>
     </header>
 
     <section class="body-right ">
 
-      <div class="resume container-fluid" id="resume" data-visibility="active">
+      <div class="resume " id="resume" data-visibility="active">
 
         <div class="photo-header">
           <div class="photo-circle">
@@ -157,8 +115,8 @@
             <p>
               Profissional com mais de 12 anos de experiência na <strong class="strong-resume">gestão e execução de
                 projetos de manutenção predial</strong>, especializado em planejamento, supervisão e otimização de
-              processos. <br>Com forte habilidade em coordenar equipes multidisciplinares, garantindo prazos e orçamentos,
-              e mantendo altos padrões de qualidade e satisfação do cliente. <br>Atualmente, expandindo meus conhecimentos
+              processos. <br><br>Com forte habilidade em coordenar equipes multidisciplinares, garantindo prazos e orçamentos,
+              e mantendo altos padrões de qualidade e satisfação do cliente. <br><br>Atualmente, expandindo meus conhecimentos
               para a area da <strong class="strong-resume">Tecnologia da Informação</strong> e <strong
                 class="strong-resume">Desenvolvimento de Software</strong>, aplicando minha expertise em planejamento e
               resolução de problemas para criar soluções eficientes e bem estruturadas.
@@ -244,10 +202,8 @@
               Contatos: <a href="mailto:douglas.barbosa.pro@gmail.com">douglas.barbosa.pro@gmail.com</a>
             </p>
           </div>
-
-        </div>
-
-        <div class="social-medias container">
+          <hr>
+          <div class="">
           <h2>Redes Sociais</h2>
 
           <div>
@@ -276,6 +232,9 @@
           </div>
 
         </div>
+        </div>
+
+        
 
         <div></div>
 

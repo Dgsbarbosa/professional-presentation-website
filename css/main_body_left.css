@@ -1,6 +1,6 @@
-/* border: 1px solid black */
-
+/* Estilos gerais para o menu */
 .main-left {
+    /* border: 2px solid white; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,122 +10,113 @@
     background: var(--second-background-color);
     text-shadow: 2px 2px 2px black;
     padding: 0px 10px;
-    /* padding-right: 10px;background-color: lightblue; */
     box-shadow: 10px 0px 15px rgba(0, 0, 0, 0.3);
+    font-size: 1.5em;
+}
 
-
+/* Estilo para o navbar */
+.main-left .navbar {
+    /* border: 2px solid rgb(248, 0, 0); */
+    height: 100%;
+    width: 100%;
+    padding: 0;
 }
 
 
-.main-left-top a{
-    /* border: 1px solid black; */
-    text-decoration: none;
-    font-size: 0.8em;
-    padding-top: 10px;
-    height: 5%;
+.main-left-top{
+    /* border: 2px solid rgb(0, 0, 0); */
+    
+}
+.main-left .navbar-brand {
+    /* border: 2px solid white; */
+
+    font-size: 1.8rem;
+    
     color: var(--primary-text-color);
     text-shadow: 2px 2px 2px black;
-
-
+    padding: 0;
 }
-
-.main-left-options {
-
-    display: flex;
-    width: 50px;
-    height: 60%;
-
-}
-
-.main-left-options nav {
-    /* border: 1px solid rgb(255, 255, 255); */
-    width: 100%;
-    font-size: 1.2em;
-}
-
-.main-left-options nav ul {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    text-align: center;
-    list-style: none;
-    padding: 0%;
-    margin: 0;
-}
-
-.main-list a {
-    color: var(--second-text-color);
-    text-decoration: none;
-}
-
-.main-list-option-text {
+.main-left .navbar-brand .name-hidden {
     display: none;
+  }
+
+  .main-left .navbar-brand:hover {
+    color: var(--second-text-color);
+    cursor: pointer;
+  }
+
+.main-left .navbar-toggler {
+    border: none;
+    color: var(--primary-text-color);
+    font-size: 1.5rem;
+}
+
+/* Estilo para os itens do menu */
+.navbar-nav {
+    /* border: 2px solid rgb(166, 255, 0); */
+    row-gap: 1rem;
+}
+.main-left .navbar-collapse{
+    /* border: 2px solid rgb(166, 255, 0); */
+
+
+}
+.main-left .nav-item {
+    width: 100%;
+}
+
+.main-left .nav-link {
+    color: var(--second-text-color);
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.main-left .nav-link i {
+    font-size: 1.5rem;
+    min-width: 24px;
+}
+
+.main-left .nav-link-text {
+    display: none;
+    margin-left: 10px;
     transition: opacity 0.2s ease-in-out, transform 0.5s ease-in-out;
 }
 
-.main-left-options:hover {
-    cursor: pointer;
-
+.main-left-down  {
+    /* border: 2px solid rgb(0, 0, 0); */
+    width: 100%;
+    margin-bottom: 30px;
 }
-
-.main-left-options:hover .main-list-option {
-    display: flex;
-    align-items: center;
-}
-
-.main-left-options:hover .main-list {
-    box-shadow: 1px 1px 10px black;
-
-}
-
-.main-left-options:hover .main-list,
-.main-left-options:hover .main-list a {
-    background: var(--second-background-color);
-    padding-left: 20px;
-    width: max-content;
-
-}
-
-.main-left-options:hover .main-list a {
-    /* background: var(--second-background-color);     */
-    width: max-content;
-
-}
-
-.main-left-options:hover .main-list-option-text {
-
-    display: block;
-    padding: 0px 10px;
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.main-list-option-text {
-    transform: scale(1);
-
-}
-
-.main-list a:hover {
-    color: var(--primary-text-color);
-    text-shadow: 2px 2px 2px black;
-
-}
-
 
 .main-left-down a {
-    color: var(--primary-text-color);
-    font-size: 1.7rem;
-    text-shadow: 2px 2px 2px black;
-    position: relative;
+    text-decoration: none;
+
 }
+.main-left-down i , .main-left-down .nav-link-text{
+    color: var(--primary-text-color);
+
+}
+.main-left .nav-link.active-link {
+    color: var(--primary-text-color); /* ou outra cor chamativa */
+    font-weight: bold;
+    background-color: rgba(255,255,255,0.1); /* leve destaque */
+    border-left: 4px solid var(--primary-color);
+    padding-left: 12px;
+  }
+  
+  .main-left .nav-link:hover{
+    color: var(--primary-text-color);
+  }
+/* Estilo para o tooltip de download */
 
 .tooltip-download {
     position: relative;
     display: inline-block;
-  }
-  
-  .tooltip-text {
+}
+
+.tooltip-text {
     visibility: hidden;
     width: 130px;
     background-color: #333;
@@ -135,16 +126,116 @@
     padding: 5px 8px;
     position: absolute;
     z-index: 1;
-    bottom: 120%; /* cima do ícone */
+    bottom: 120%;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.3s;
-    font-size: 12px;
-  }
-  
-  .tooltip-download:hover .tooltip-text {
+    font-size: 0.5em;
+}
+
+.tooltip-download:hover .tooltip-text {
     visibility: visible;
     opacity: 1;
-  }
-  
+}
+
+.main-left-down{
+    margin-top: 1rem;
+}
+
+
+/* Efeito hover para desktop */
+@media (min-width: 992px) {
+    .main-left-top{
+        /* border: 2px solid rgb(0, 0, 0); */
+        margin-bottom: 1rem;
+    }
+   
+      .main-left .navbar:hover .name-hidden {
+        display: inline;
+      }
+    
+      .main-left .navbar-brand .name-hidden {
+        transition: opacity 0.3s ease;
+      }
+    .main-left .navbar-collapse {
+        /* border: 2px solid rgb(0, 0, 0); */
+        display: flex !important;
+        flex-direction: column;
+    }
+    
+    .main-left .nav-link:hover .nav-link-text {
+        display: inline-block;
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+    
+    .main-left .navbar:hover .nav-link-text {
+        display: inline-block;
+        padding: 0 10px;
+        width: max-content;
+
+    }
+
+    .main-left .navbar:hover .name-hidden{
+        /* border: 2px solid rgb(0, 0, 0); */
+        display: inline;
+
+
+    }
+    
+    .main-left .navbar:hover .nav-link {
+        padding-left: 10px;
+    }
+    
+    .main-left .nav-link:hover {
+        color: var(--primary-text-color);
+        text-shadow: 2px 2px 2px black;
+    }
+
+    .main-left-down{
+        margin-top: 1rem;
+        padding-left: 0.5rem;
+
+    }
+}
+
+/* Estilo para mobile */
+@media (max-width: 991.98px) {
+    .main-left .nav-link, .main-left .main-left-down{
+        padding-left: 1rem;
+    }
+    .main-left {
+        flex-direction: row;
+        padding: 0.5rem;
+        height: auto;
+    }
+    
+    .main-left-top {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .main-left .nav-link-text {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    
+    .main-left .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--second-background-color);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+    
+    .main-left-down {
+        margin-left: auto;
+        padding-right: 1rem;
+    }
+}
