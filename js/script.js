@@ -219,8 +219,6 @@ function listarCertificados(nomeCategoria) {
     setupImageModal();
 }
 
-
-
 function addCertificate(imagens, nomeSemExtensao, temVerso) {
     const container = document.querySelector('.area-selected-list.row');
 
@@ -262,7 +260,7 @@ function setupImageModal() {
             scale = 1;
             modalImg.src = imagens[indiceAtual];
             modalImg.style.transform = `scale(${scale})`;
-            modal.style.display = "flex";
+            modal.style.display = "block";
             
 
             botaoVerso.style.display = imagens.length > 1 ? "inline-block" : "none";
@@ -322,7 +320,7 @@ function carregarTecnologias() {
 
                 ferramentas.forEach(ferramenta => {
                     const item = document.createElement('div');
-                    item.className = 'tool-item col-sm-2 col-md-2';
+                    item.className = 'tool-item col-sm-6 col-md-2 my-3';
 
                     item.innerHTML = `
             <a href="${ferramenta.link}" target="_blank" rel="noopener noreferrer">
