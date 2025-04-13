@@ -17,11 +17,18 @@
   --title-font: "Montserrat";
 
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+}
+
 
 .div-main-body {
 
   display: flex;
-  height: 95%;
+  height: 100vh;
   width: 95%;
   margin-top: 10px;
   overflow: hidden;
@@ -30,10 +37,9 @@
 
 .body-right{
   /* border: 2px solid white; */
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  justify-content: center;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 20px;
 }
 
 /* Ocultar */
@@ -92,3 +98,30 @@ div::-webkit-scrollbar-thumb:hover {
     flex-direction: column;
   }
 }
+
+@media (max-height:400px) {
+  .body-right {
+      /* border: 1px solid rgb(255, 0, 0); */
+      padding-top: 100px;
+   
+  }
+}
+@media (max-height: 400px) {
+  .body-right {
+    overflow-y: auto;
+    height: 100vh;
+    padding-bottom: 20px;
+  }
+
+  .resume,
+  .basic-data,
+  .professional,
+  .courses,
+  .tools,
+  .projects {
+    flex: 1;
+    min-height: 100%;
+  }
+}
+
+
