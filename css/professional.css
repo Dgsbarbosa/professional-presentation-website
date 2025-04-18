@@ -108,7 +108,7 @@ text-shadow: 0px 0px 10px black;
 }
 
 .Yearly-timeline .timeline-content:hover {
-    /* text-decoration:underline; */
+    text-decoration:underline;
 }
 
 .Yearly-timeline .timeline-icon {
@@ -234,6 +234,7 @@ text-shadow: 0px 0px 10px black;
         display: none; 
 
     }
+  
     
     .Yearly-timeline .timeline:after {
         /* border: 1px solid rgb(255, 0, 0); */
@@ -242,6 +243,14 @@ text-shadow: 0px 0px 10px black;
     
     .Yearly-timeline .timeline-content {
         box-shadow: 0 0 5px rgba(0,0,0,0.2); 
+    }
+    .Yearly-timeline .timeline-content:before {
+      
+        left: 10px;
+        right: 10px;
+        top: 10px;
+        bottom: 10px;
+        z-index: -1;
     }
     
     .professional {
