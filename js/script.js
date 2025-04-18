@@ -130,7 +130,6 @@ function cleanWords(text) {
     return text
 }
 
-
 //  Aba de certificados
 function formatarNomeCategoria(nome) {
     return nome
@@ -148,7 +147,6 @@ function formatarNomeCategoria(nome) {
         })
         .join(" ");
 }
-
 
 function carregarCategorias() {
     const listaCategorias = document.querySelector(".areas-list ul");
@@ -175,7 +173,6 @@ function carregarCategorias() {
         listaCategorias.appendChild(li);
     });
 }
-
 
 function agruparCertificadosFrenteVerso(lista) {
     const grupos = {};
@@ -245,49 +242,126 @@ function setupImageModal() {
     const modalImg = document.getElementById("fullImage");
     const closeModal = document.querySelector(".close");
     const thumbnails = document.querySelectorAll(".certificate-thumbnail");
-
     const botaoVerso = document.querySelector("#toggleSide");
+
     let imagens = [];
     let indiceAtual = 0;
     let scale = 1;
+    let isDragging = false;
+    let startX, startY, translateX = 0, translateY = 0;
+    let initialDistance = 0;
+
+    // Verifica se é mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     thumbnails.forEach(thumb => {
-        thumb.addEventListener("click", function () {
+        thumb.addEventListener("click", function() {
             const divPai = this.closest(".certificate");
-            // divPai.style.display = "flex";
-            
             imagens = JSON.parse(divPai.dataset.certImagens);
             indiceAtual = 0;
             scale = 1;
+            translateX = 0;
+            translateY = 0;
             modalImg.src = imagens[indiceAtual];
             modalImg.style.transform = `scale(${scale})`;
             modal.style.display = "flex";
-            
+            document.body.style.overflow = "hidden";
 
-            botaoVerso.style.display = imagens.length > 1 ? "inline-block" : "none";
+            botaoVerso.style.display = imagens.length > 1 ? "block" : "none";
+            
+            // Ajustes específicos para mobile
+            if (isMobile) {
+                modalImg.style.maxHeight = "80vh";
+                modalImg.style.maxWidth = "90vw";
+                closeModal.style.top = "20px";
+                closeModal.style.right = "20px";
+                botaoVerso.style.position = "fixed";
+                botaoVerso.style.bottom = "20px";
+                botaoVerso.style.left = "50%";
+                botaoVerso.style.transform = "translateX(-50%)";
+            }
         });
     });
 
+    // Fechar modal
     closeModal.addEventListener("click", () => {
         modal.style.display = "none";
+        document.body.style.overflow = "auto";
     });
 
+    // Fechar ao clicar fora
     modal.addEventListener("click", e => {
-        if (e.target === modal) modal.style.display = "none";
+        if (e.target === modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
     });
 
+    // ZOOM COM SCROLL DO MOUSE (mantido como original)
     modal.addEventListener("wheel", e => {
         e.preventDefault();
-        scale += (e.deltaY < 0 ? 0.1 : -0.1);
-        scale = Math.min(Math.max(scale, 1), 3);
+        const delta = e.deltaY < 0 ? 0.1 : -0.1;
+        scale += delta;
+        scale = Math.min(Math.max(scale, 1), 3); // Limite entre 1x e 3x
         modalImg.style.transform = `scale(${scale})`;
         modalImg.style.transition = "transform 0.2s ease";
     });
 
+    // COMPORTAMENTOS APENAS PARA MOBILE
+    if (isMobile) {
+        // Arrastar imagem quando zoomado
+        modalImg.addEventListener("touchstart", e => {
+            if (scale > 1) {
+                isDragging = true;
+                startX = e.touches[0].clientX - translateX;
+                startY = e.touches[0].clientY - translateY;
+            }
+        });
+
+        modalImg.addEventListener("touchmove", e => {
+            if (isDragging && scale > 1) {
+                translateX = e.touches[0].clientX - startX;
+                translateY = e.touches[0].clientY - startY;
+                modalImg.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+            }
+        });
+
+        modalImg.addEventListener("touchend", () => {
+            isDragging = false;
+        });
+
+        // Double tap para alternar zoom
+        let lastTap = 0;
+        modalImg.addEventListener("touchend", (e) => {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            
+            if (tapLength < 300 && tapLength > 0) {
+                // Double tap detected
+                if (scale === 1) {
+                    scale = 2;
+                } else {
+                    scale = 1;
+                    translateX = 0;
+                    translateY = 0;
+                }
+                modalImg.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+                modalImg.style.transition = "transform 0.2s ease";
+            }
+            lastTap = currentTime;
+        });
+    }
+
+    // Botão "Ver Verso"
     botaoVerso.addEventListener("click", () => {
         if (imagens.length > 1) {
             indiceAtual = (indiceAtual + 1) % imagens.length;
             modalImg.src = imagens[indiceAtual];
+            // Reset zoom ao mudar de lado
+            scale = 1;
+            translateX = 0;
+            translateY = 0;
+            modalImg.style.transform = `scale(${scale})`;
         }
     });
 }
