@@ -321,7 +321,7 @@ function carregarTecnologias() {
 
                 ferramentas.forEach(ferramenta => {
                     const item = document.createElement('div');
-                    item.className = 'tool-item col-sm-6 col-md-2 my-3';
+                    item.className = 'tool-item col-6 col-sm-6 col-md-4 col-lg-3 my-3';
 
                     item.innerHTML = `
             <a href="${ferramenta.link}" target="_blank" rel="noopener noreferrer">
