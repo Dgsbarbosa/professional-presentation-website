@@ -96,6 +96,9 @@ div::-webkit-scrollbar-thumb:hover {
 
 @media (max-width:900px) {
   .div-main-body{
+      border: 1px solid rgb(255, 0, 0);
+      margin-top: 10px;
+
     flex-direction: column;
   }
   div::-webkit-scrollbar {
