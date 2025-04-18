@@ -122,7 +122,11 @@
 }
 
 /* Modal */
+
+/* certificateModal */
+
 .modal {
+    /* border: 3px solid beige; */
     display: none;
     position: fixed;
     z-index: 2000;
@@ -133,24 +137,32 @@
     background-color: rgba(0, 0, 0, 0.85);
     padding: 20px;
     gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
 
 
+
 .modal-content {
-    max-width: 80vw;
+    border: 3px solid rgb(255, 255, 0);
+    position: relative;
+    max-width: 50vw;
     max-height: 70vh;
     object-fit: contain;
     border-radius: 8px;
     transition: transform 0.2s ease;
     cursor: grab;
+    
 }
 
 /* Fechar à esquerda no topo */
 .close {
     position: absolute;
     top: 20px;
-    left: 20px;
+    right: 20vw;
     color: white;
     font-size: 30px;
     font-weight: bold;
@@ -162,8 +174,8 @@
 #toggleSide {
     display: none;
     background-color: var(--primary-text-color);
-    color: var(--primary-background-color);
-    text-shadow: 1px 1px 5px rgb(255, 255, 255);
+    color: white;
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
     border: none;
     padding: 10px 25px;
     font-weight: bold;
@@ -179,6 +191,7 @@
 }
 
 
+/* Medias Queries */
 
 @media (min-width:992px) {
     .areas-main {

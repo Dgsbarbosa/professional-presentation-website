@@ -255,12 +255,13 @@ function setupImageModal() {
         thumb.addEventListener("click", function () {
             const divPai = this.closest(".certificate");
             // divPai.style.display = "flex";
+            
             imagens = JSON.parse(divPai.dataset.certImagens);
             indiceAtual = 0;
             scale = 1;
             modalImg.src = imagens[indiceAtual];
             modalImg.style.transform = `scale(${scale})`;
-            modal.style.display = "block";
+            modal.style.display = "flex";
             
 
             botaoVerso.style.display = imagens.length > 1 ? "inline-block" : "none";
@@ -348,6 +349,7 @@ function carregarTecnologias() {
         })
         .catch(error => console.error('Erro ao carregar o JSON:', error));
 }
+
 const techTab = document.querySelector('[data-target="tools"]');
 if (techTab) {
     techTab.addEventListener('click', () => {
