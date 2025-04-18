@@ -147,10 +147,10 @@
 
 
 .modal-content {
-    border: 3px solid rgb(255, 255, 0);
+    /* border: 3px solid rgb(255, 255, 0); */
     position: relative;
     max-width: 50vw;
-    max-height: 70vh;
+    max-height: auto;
     object-fit: contain;
     border-radius: 8px;
     transition: transform 0.2s ease;
@@ -161,7 +161,7 @@
 /* Fechar à esquerda no topo */
 .close {
     position: absolute;
-    top: 20px;
+    top:100px;
     right: 20vw;
     color: white;
     font-size: 30px;
@@ -234,6 +234,13 @@
         justify-content: center;
         
     }
+    .modal-content {
+        width: 100vw;
+        padding: 0;
+    }
+    .close{
+        top: 300px;
+    }
 
 }
 
@@ -245,5 +252,8 @@
     .area-selected{
         max-height: 500px;
         height: 500px;
+    }
+    .close{
+        top: 300px;
     }
 }
