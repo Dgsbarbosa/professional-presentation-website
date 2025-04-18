@@ -18,8 +18,10 @@
 .main-left .navbar {
     /* border: 2px solid rgb(248, 0, 0); */
     height: 100%;
-    width: 100%;
+    width: max-content;
+    min-width: 100%;
     padding: 0;
+    justify-content: space-around;
 }
 
 
