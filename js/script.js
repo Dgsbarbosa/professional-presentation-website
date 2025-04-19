@@ -114,7 +114,7 @@ function showSection(event) {
     sectionNext.classList.remove("hidden");
     sectionNext.dataset.visibility = "active";
     if (sectionIdMenu === "courses" && !window.certificadosCarregados) {
-        fetch("certificados.json")
+        fetch("certificates-list.json")
             .then(res => res.json())
             .then(data => {
                 categoriasLocais = data;

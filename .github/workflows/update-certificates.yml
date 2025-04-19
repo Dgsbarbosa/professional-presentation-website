@@ -1,0 +1,30 @@
+name: Update certificates.json
+
+on:
+  push:
+    paths:
+      - 'Certificados/**'  
+
+jobs:
+  gerar-certificados-json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: 🧰 Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: ▶️ Executar script de geração
+        run: node update-list-certificates.js
+
+      - name: 💾 Commit e push das alterações
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add certificates-list.json
+          git diff --cached --quiet || git commit -m "🤖 Atualiza certificados.json automaticamente"
+          git push

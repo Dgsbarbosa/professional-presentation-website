@@ -13,7 +13,7 @@ fs.readdirSync(certificadosDir, { withFileTypes: true })
     const categoriaPath = path.join(certificadosDir, categoria);
 
     const arquivos = fs.readdirSync(categoriaPath)
-      .filter(file => !file.startsWith("."))
+      .filter(file => !file.startsWith(".") && path.extname(file) !== ".ini")
       .map(file => `Certificados/${categoria}/${file}`);
 
     resultado[categoria] = arquivos;
