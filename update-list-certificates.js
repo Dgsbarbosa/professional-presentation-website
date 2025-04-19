@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const certificadosDir = path.join(__dirname, "Certificados");
-const outputJson = path.join(__dirname, "certificados.json");
+const outputJson = path.join(__dirname, "certificates-list.json");
 
 const resultado = {};
 
