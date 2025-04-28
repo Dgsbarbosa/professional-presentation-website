@@ -4,6 +4,10 @@
     align-items: center;
     text-shadow: 2px 2px 2px black;
     overflow: hidden;
+    height: 82vh;
+    box-shadow: 1px 1px 5px black;
+    margin-top: 30px;
+
 
 }
 .professional-heading {
@@ -102,6 +106,7 @@
 #skills-container{
     /* border: 1px solid rgb(51, 255, 0); */
     padding-bottom: 30px;
+    margin-bottom: 100px;
 
 }
 
