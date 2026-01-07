@@ -1,3 +1,9 @@
+// ===============================
+// 🔴 CONFIGURAÇÕES (MUDE SÓ AQUI)
+// ===============================
+
+const API_KEY = "AIzaSyBvKY1Y36Iv-mdezpjW6g2uj13YQ_xG8BI";
+const PASTA_CERTIFICADOS_ID = "1TJLUfF-OwU-gi3qw5uP-nBDJJFiXrmqY";
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -46,7 +52,7 @@ function getLevelClass(nivel) {
     }
 }
 
-let categoriasLocais = {};
+
 
 const palavrasEspeciais = {
     "ti": "TI",
@@ -114,14 +120,9 @@ function showSection(event) {
     sectionNext.classList.remove("hidden");
     sectionNext.dataset.visibility = "active";
     if (sectionIdMenu === "courses" && !window.certificadosCarregados) {
-        fetch("certificates-list.json")
-            .then(res => res.json())
-            .then(data => {
-                categoriasLocais = data;
-                carregarCategorias();
-                window.certificadosCarregados = true;
-            });
-    }
+    carregarCategoriasDoDrive();
+    window.certificadosCarregados = true;
+}
 }
 
 function cleanWords(text) {
@@ -147,74 +148,104 @@ function formatarNomeCategoria(nome) {
         })
         .join(" ");
 }
+// ===============================
+// 📁 CERTIFICADOS VIA GOOGLE DRIVE
+// ===============================
 
-function carregarCategorias() {
+let categoriasDrive = [];
+
+// Buscar categorias (pastas)
+async function carregarCategoriasDoDrive() {
+    const url = `https://www.googleapis.com/drive/v3/files?q='${PASTA_CERTIFICADOS_ID}'+in+parents and mimeType='application/vnd.google-apps.folder' and trashed=false&key=${API_KEY}&fields=files(id,name)`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    categoriasDrive = data.files;
+    renderizarCategoriasDrive();
+}
+
+// Renderiza lista de categorias
+function renderizarCategoriasDrive() {
     const listaCategorias = document.querySelector(".areas-list ul");
     listaCategorias.innerHTML = "";
 
-    const nomesOriginais = Object.keys(categoriasLocais);
-
-
-    const nomesFormatados = nomesOriginais.map(nome => ({
-        original: nome,
-        exibicao: formatarNomeCategoria(nome)
+    const nomesFormatados = categoriasDrive.map(cat => ({
+        id: cat.id,
+        original: cat.name,
+        exibicao: formatarNomeCategoria(cat.name)
     }));
 
     nomesFormatados.sort((a, b) => a.exibicao.localeCompare(b.exibicao));
 
-    nomesFormatados.forEach(({ original, exibicao }) => {
+    nomesFormatados.forEach(cat => {
         const li = document.createElement("li");
-        li.textContent = exibicao;
+        li.textContent = cat.exibicao;
         li.style.cursor = "pointer";
-        li.addEventListener("click", () =>
-            listarCertificados(original));
-            
-
+        li.addEventListener("click", () => listarCertificadosDrive(cat.id, cat.original));
         listaCategorias.appendChild(li);
     });
 }
 
-function agruparCertificadosFrenteVerso(lista) {
-    const grupos = {};
-
-    lista
-        .filter(arquivo => arquivo.toLowerCase().endsWith(".png"))
-        .forEach(caminho => {
-            const nomeArquivo = caminho.split("/").pop().replace(".png", "");
-            const base = nomeArquivo.replace(/-\d$/, ''); // Ex: Inglês 1-1 → Inglês 1
-
-            if (!grupos[base]) grupos[base] = [];
-            grupos[base].push({ caminho, nome: nomeArquivo });
-        });
-
-    return grupos;
-}
-function listarCertificados(nomeCategoria) {
-    const certificados = categoriasLocais[nomeCategoria];
+// Buscar arquivos de uma categoria
+async function listarCertificadosDrive(pastaId, nomeCategoria) {
     const container = document.querySelector('.area-selected-list.row');
-    container.innerHTML = "";
+    container.innerHTML = "Carregando...";
 
     const titulo = document.querySelector('.area-selected-title');
     titulo.textContent = formatarNomeCategoria(nomeCategoria);
 
-    if (!certificados || certificados.length === 0) {
-        container.innerHTML = '<p>Nenhum certificado encontrado.</p>';
+    const url = `https://www.googleapis.com/drive/v3/files?q='${pastaId}'+in+parents and trashed=false&key=${API_KEY}&fields=files(id,name,mimeType)`;
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const imagens = data.files.filter(f => f.mimeType.startsWith("image/"));
+
+    container.innerHTML = "";
+
+    if (imagens.length === 0) {
+        container.innerHTML = "<p>Nenhum certificado encontrado.</p>";
         return;
     }
 
-    const grupos = agruparCertificadosFrenteVerso(certificados);
+    const grupos = agruparCertificadosFrenteVerso(
+        imagens.map(img => ({
+            caminho: `https://drive.google.com/uc?export=view&id=${img.id}`,
+            nome: img.name.replace(/\.[^/.]+$/, "")
+        }))
+    );
 
     Object.keys(grupos).forEach(base => {
-        const imagens = grupos[base];
-        const temVerso = imagens.length > 1;
-
+        const imagensGrupo = grupos[base];
+        const temVerso = imagensGrupo.length > 1;
         const nomeFormatado = formatarNomeCategoria(base);
 
-        addCertificate(imagens, nomeFormatado, temVerso);
+        addCertificate(imagensGrupo, nomeFormatado, temVerso);
     });
 
     setupImageModal();
 }
+
+
+
+function agruparCertificadosFrenteVerso(lista) {
+    const grupos = {};
+
+    lista.forEach(item => {
+        const base = item.nome.replace(/-\d$/, '');
+
+        if (!grupos[base]) grupos[base] = [];
+        grupos[base].push({
+            caminho: item.caminho,
+            nome: item.nome
+        });
+    });
+
+    return grupos;
+}
+
+
 
 function addCertificate(imagens, nomeSemExtensao, temVerso) {
     const container = document.querySelector('.area-selected-list.row');
