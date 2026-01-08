@@ -200,7 +200,10 @@ async function listarCertificadosDrive(pastaId, nomeCategoria) {
     const res = await fetch(url);
     const data = await res.json();
 
-    const imagens = data.files.filter(f => f.mimeType.startsWith("image/"));
+    let imagens = data.files.filter(f => f.mimeType.startsWith("image/"));
+
+    // ✅ Ordena os arquivos por nome antes de agrupar
+    imagens.sort((a, b) => a.name.localeCompare(b.name, 'pt-BR'));
 
     container.innerHTML = "";
 
@@ -211,13 +214,20 @@ async function listarCertificadosDrive(pastaId, nomeCategoria) {
 
     const grupos = agruparCertificadosFrenteVerso(
         imagens.map(img => ({
-            caminho: `https://drive.google.com/uc?export=view&id=${img.id}`,
+            caminho: `https://drive.google.com/thumbnail?id=${img.id}&sz=w1000`,
             nome: img.name.replace(/\.[^/.]+$/, "")
         }))
     );
 
-    Object.keys(grupos).forEach(base => {
+    // ✅ Ordena os grupos (certificados) em ordem alfabética
+    const basesOrdenadas = Object.keys(grupos).sort((a, b) => a.localeCompare(b, 'pt-BR'));
+
+    basesOrdenadas.forEach(base => {
         const imagensGrupo = grupos[base];
+
+        // ✅ Garante que frente vem antes do verso
+        imagensGrupo.sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'));
+
         const temVerso = imagensGrupo.length > 1;
         const nomeFormatado = formatarNomeCategoria(base);
 
@@ -226,6 +236,7 @@ async function listarCertificadosDrive(pastaId, nomeCategoria) {
 
     setupImageModal();
 }
+
 
 
 
